@@ -62,6 +62,8 @@ class Wp_Disable_AI_Admin {
 	
     public function registersettings() {
         register_setting( 'wp-disable-ai', 'wp_disable_ai_plugin_elementor');
+        register_setting( 'wp-disable-ai', 'wp_disable_ai_plugin_wpforms');
+        register_setting( 'wp-disable-ai', 'wp_disable_ai_plugin_yoast');
     }
 
 	public function render_options_page() {

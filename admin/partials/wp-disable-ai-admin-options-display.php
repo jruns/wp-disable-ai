@@ -13,8 +13,12 @@
  */
 ?>
 <style>
+    .itemTitle {
+        margin-bottom: 20px;
+    }
+
     .form-table th, .form-table td {
-        padding: 0 10px 0 0;
+        padding: 0 0 10px 0;
     }
     @media screen and (min-width: 783px) {
         .form-table th {
@@ -77,7 +81,7 @@
 
 <div class="wrap">
 <h1><?php esc_html_e( 'WP Disable AI', 'wp-disable-ai' ); ?></h1>
-<p class="plugin_intro">Tired of plugins and themes adding AI features you don't want? Tired of getting nagged all the time to turn on and pay for those AI features? WP Disable AI enables you to disable unwanted AI features and notifications in plugins, themes, and WordPress Core.</p>
+<p class="plugin_intro">Tired of plugins and themes adding AI features you don't want?<br/>Tired of getting nagged all the time to pay for AI features?<br/>This plugin helps you turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.</p>
 
 <form method="post" action="<?php echo admin_url( 'options.php' ); ?>">
 <?php settings_fields( 'wp-disable-ai' ); ?>
@@ -92,6 +96,20 @@ $args = array(
     'utility_var'       => 'wp_disable_ai_plugin_elementor',
     'heading'           => 'Elementor',
     'description'       => 'Disable Elementor\'s AI features.'
+);
+echo output_admin_option( $args );
+
+$args = array(
+    'utility_var'       => 'wp_disable_ai_plugin_wpforms',
+    'heading'           => 'WPForms',
+    'description'       => 'Disable WPForms\' AI features.'
+);
+echo output_admin_option( $args );
+
+$args = array(
+    'utility_var'       => 'wp_disable_ai_plugin_yoast',
+    'heading'           => 'Yoast',
+    'description'       => 'Disable Yoast\'s AI features.'
 );
 echo output_admin_option( $args );
 ?>
