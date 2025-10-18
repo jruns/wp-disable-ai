@@ -1,0 +1,153 @@
+<?php
+
+/**
+ * Provide a admin area view for the plugin
+ *
+ * This file is used to markup the admin-facing aspects of the plugin.
+ *
+ * @link       https://jruns.github.io/
+ * @since      0.1.0
+ *
+ * @package    Wp_Disable_AI
+ * @subpackage Wp_Disable_AI/admin/partials
+ */
+?>
+<style>
+    .form-table th, .form-table td {
+        padding: 0 10px 0 0;
+    }
+    @media screen and (min-width: 783px) {
+        .form-table th {
+            width: 250px;
+        }
+    }
+
+    .child-table {
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 40px;
+    }
+    .form-table .child-table th {
+        padding: 0;
+    }
+    .form-table .child-table td {
+        padding: 5px 0 10px;
+    }
+
+    .plugin_intro {
+        font-size: 1.4em;
+        margin-bottom: 2em;
+        font-weight: 600;
+    }
+
+    .utility_notice {
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    .dashicons-warning {
+        line-height: 1.4;
+        font-size: 14px;
+        color: #F5B027;
+        margin-left:4px;
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;	
+    }
+    .tooltip .tooltip-text {
+        visibility: hidden;
+        top: 20px;
+        right: 0;
+        min-width:280px;
+        background-color: #E4E4E4;
+        border: 2px solid #3D3D3D;
+        border-radius: 5px;
+        font-size: 0.9em;
+        color: rgb(60, 67, 74);
+        padding: 4px;
+        position: absolute;
+        z-index: 1;
+    }
+    .tooltip:hover .tooltip-text {
+        visibility: visible;
+    }
+</style>
+
+<div class="wrap">
+<h1><?php esc_html_e( 'WP Disable AI', 'wp-disable-ai' ); ?></h1>
+<p class="plugin_intro">Tired of plugins and themes adding AI features you don't want? Tired of getting nagged all the time to turn on and pay for those AI features? WP Disable AI enables you to disable unwanted AI features and notifications in plugins, themes, and WordPress Core.</p>
+
+<form method="post" action="<?php echo admin_url( 'options.php' ); ?>">
+<?php settings_fields( 'wp-disable-ai' ); ?>
+
+<ul>
+<li class="itemDetail">
+<h2 class="itemTitle"><?php _e( 'Disable in Plugins', 'wp-disable-ai' ); ?></h2>
+
+<table class="form-table">
+<?php
+$args = array(
+    'utility_var'       => 'wp_disable_ai_plugin_elementor',
+    'heading'           => 'Elementor',
+    'description'       => 'Disable Elementor\'s AI features.'
+);
+echo output_admin_option( $args );
+?>
+</table>
+
+</li>
+</ul>
+
+<p class="submit">
+<input type="submit" class="button-secondary" value="<?php _e( 'Save Changes', 'eventcore' ); ?>" />
+</p>
+
+</form>
+</div>
+
+<?php
+
+function output_admin_option( $args ) {
+    extract( $args );
+
+    $utility_constant = strtoupper( $utility_var );
+    $utility_value = null;
+    $placeholder = '';
+    $after_label_msg = '';
+    if( defined( $utility_constant ) ) {
+        $utility_value = constant( $utility_constant );
+        $after_label_msg = __( "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to enable/disable this setting here.</span></span>" );
+    } else {
+        $utility_value = get_option( $utility_var );
+    }
+
+    $child_output = '';
+
+    if ( ! empty( $child_options ) && is_array( $child_options ) ) {
+        foreach( $child_options as $child ) {
+            $child['is_child'] = true;
+            $child_output .= output_admin_option( $child );
+        }
+        $child_output = "<table class='child-table'>" . $child_output . "</table>";
+    }
+
+    $input_output = "<input type='checkbox' id='$utility_var' name='$utility_var' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . __( $description, 'wp-disable-ai' ) . "$after_label_msg";
+    if ( ! empty( $type ) ) {
+        if ( empty( $utility_value ) && ! empty( $default ) ) {
+            $placeholder = "placeholder='$default'";
+        }
+
+        if ( 'number' === $type ) {
+            $input_output = __( $description, 'wp-disable-ai' ) . "<br/><input type='number' id='$utility_var' name='$utility_var' value='$utility_value' $placeholder" . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>$after_label_msg";
+        }
+    }
+
+    return "<tr valign='top'>
+        <th scope='row'>" . __( $heading, 'wp-disable-ai' ) . "</th>" .
+        ( ! empty( $is_child ) && $is_child ? "</tr><tr valign='top'>" : "" ) .
+        "<td><label>$input_output</label>
+        $child_output
+        </td></tr>";
+}

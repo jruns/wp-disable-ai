@@ -1,0 +1,24 @@
+{
+	"name": "jruns/wp-disable-ai",
+	"description": "WordPress plugin to disable AI features in plugins, themes, and WordPress Core.",
+	"license": "GPL-2.0-or-later",
+	"type": "wordpress-plugin",
+	"keywords": [
+		"wordpress",
+		"ai",
+        "artificial intelligence",
+        "sustainability"
+	],
+	"authors": [
+		{
+			"name": "Jason Schramm",
+			"email": "jason.runs@proton.me",
+			"homepage": "https://github.com/jruns"
+		}
+	],
+	"homepage": "https://github.com/jruns/wp-disable-ai",
+	"support": {
+		"issues": "https://github.com/jruns/wp-disable-ai/issues",
+		"source": "https://github.com/jruns/wp-disable-ai"
+	}
+}
