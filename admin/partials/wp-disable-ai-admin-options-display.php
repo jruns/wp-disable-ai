@@ -94,6 +94,20 @@ $args = array(
     'description'       => 'Disable Elementor\'s AI features.'
 );
 echo output_admin_option( $args );
+
+$args = array(
+    'utility_var'       => 'wp_disable_ai_plugin_wpforms',
+    'heading'           => 'WPForms',
+    'description'       => 'Disable WPForms\' AI features.'
+);
+echo output_admin_option( $args );
+
+$args = array(
+    'utility_var'       => 'wp_disable_ai_plugin_yoast',
+    'heading'           => 'Yoast',
+    'description'       => 'Disable Yoast\'s AI features.'
+);
+echo output_admin_option( $args );
 ?>
 </table>
 
