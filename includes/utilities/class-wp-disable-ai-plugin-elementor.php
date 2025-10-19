@@ -20,7 +20,7 @@ class Wp_Disable_AI_Plugin_Elementor {
 	/**
 	 * Execute commands after initialization
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 */
 	public function run() {
 		add_filter( 'get_user_option_elementor_enable_ai', '__return_zero' );

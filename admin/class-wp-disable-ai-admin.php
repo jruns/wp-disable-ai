@@ -4,7 +4,7 @@
  * The admin-specific functionality of the plugin.
  *
  * @link       https://jruns.github.io/
- * @since      0.1.0
+ * @since      0.1
  *
  * @package    Wp_Disable_AI
  * @subpackage Wp_Disable_AI/admin
@@ -22,7 +22,7 @@ class Wp_Disable_AI_Admin {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -31,7 +31,7 @@ class Wp_Disable_AI_Admin {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -40,7 +40,7 @@ class Wp_Disable_AI_Admin {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */

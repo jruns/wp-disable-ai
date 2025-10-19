@@ -6,7 +6,7 @@
  * This file is used to markup the admin-facing aspects of the plugin.
  *
  * @link       https://jruns.github.io/
- * @since      0.1.0
+ * @since      0.1
  *
  * @package    Wp_Disable_AI
  * @subpackage Wp_Disable_AI/admin/partials

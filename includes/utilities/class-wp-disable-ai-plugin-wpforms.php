@@ -8,7 +8,7 @@ class Wp_Disable_AI_Plugin_Wpforms {
 	/**
 	 * Execute commands after initialization
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 */
 	public function run() {
 		add_filter( 'wpforms_disable_ai_features', '__return_true' );

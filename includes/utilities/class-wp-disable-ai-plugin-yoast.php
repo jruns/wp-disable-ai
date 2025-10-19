@@ -40,7 +40,7 @@ class Wp_Disable_AI_Plugin_Yoast {
 	/**
 	 * Execute commands after initialization
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 */
 	public function run() {
 		add_filter( 'option_wpseo', array( $this, 'disable_ai_generator' ), 10, 1 );
