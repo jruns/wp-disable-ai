@@ -146,7 +146,7 @@ function output_admin_option( $args , $settings ) {
         $utility_value = constant( $utility_constant );
         $after_label_msg = "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to enable/disable this setting here.</span></span>";
     } else if ( array_key_exists( $type, $settings ) && array_key_exists( $name, $settings[$type] ) ) {
-        $utility_value = $settings[$type][$name];
+        $utility_value = absint( $settings[$type][$name] );
     }
 
     $input_output = "<input type='checkbox' name='wp_disable_ai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
