@@ -58,6 +58,15 @@ class Wp_Disable_AI {
 	protected $version;
 
 	/**
+	 * The current plugin settings.
+	 *
+	 * @since    0.1
+	 * @access   protected
+	 * @var      array    $settings    The current plugin settings.
+	 */
+	protected $settings;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -128,15 +137,28 @@ class Wp_Disable_AI {
 		$this->loader->add_action( 'plugin_action_links_' . WP_DISABLE_AI_BASE_NAME, $plugin_admin, 'add_plugin_action_links' );
 	}
 
+	private function load_settings() {
+		$defaults = array(
+			'plugin' => array(),
+			'theme' => array(),
+			'core' => array()
+		);
+		$this->settings = wp_parse_args( get_option( 'wp_disable_ai_settings' ), $defaults );
+	}
+
 	private function utility_is_active( $className ) {
 		$constant_name = strtoupper( $className );
-		$option_name = strtolower( $className );
+
+		$utility = explode( '_', str_replace( 'wp_disable_ai_', '', strtolower( $className ) ) );
+
+		$utility_type = $utility[0] ?? '';
+		$utility_name = $utility[1] ?? '';
 
 		if( defined( $constant_name ) ) {
 			if ( constant( $constant_name ) ) {
 				return true;
 			}
-		} else if ( $option_value = get_option( $option_name ) ) {
+		} else if ( array_key_exists( $utility_name, $this->settings[$utility_type] ) && $this->settings[$utility_type][$utility_name] ) {
 			return true;
 		}
 
@@ -148,6 +170,7 @@ class Wp_Disable_AI {
 	 */
 	private function load_utilities() {
 		$utilities_dir = dirname( __FILE__ ) . '/utilities/';
+		$this->load_settings();
 
 		if ( is_dir( $utilities_dir ) ) {
 			if ( $dh = opendir( $utilities_dir ) ) {
