@@ -138,17 +138,12 @@ class Wp_Disable_AI {
 	}
 
 	private function load_settings() {
-		$default_array = array(
+		$defaults = array(
 			'plugin' => array(),
 			'theme' => array(),
 			'core' => array()
 		);
-
-		$this->settings = get_option( 'wp_disable_ai_settings' );
-
-		if ( empty( $this->settings ) ) {
-			$this->settings = $default_array;
-		}
+		$this->settings = wp_parse_args( get_option( 'wp_disable_ai_settings' ), $defaults );
 	}
 
 	private function utility_is_active( $className ) {
