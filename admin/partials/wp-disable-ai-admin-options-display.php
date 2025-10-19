@@ -11,6 +11,8 @@
  * @package    Wp_Disable_AI
  * @subpackage Wp_Disable_AI/admin/partials
  */
+
+$settings = (array) get_option( 'wp_disable_ai_settings', array() );
 ?>
 <style>
     .itemTitle {
@@ -93,25 +95,28 @@
 <table class="form-table">
 <?php
 $args = array(
-    'utility_var'       => 'wp_disable_ai_plugin_elementor',
+    'type'              => 'plugin',
+    'name'              => 'elementor',
     'heading'           => 'Elementor',
     'description'       => 'Disable Elementor\'s AI features.'
 );
-output_admin_option( $args );
+output_admin_option( $args, $settings );
 
 $args = array(
-    'utility_var'       => 'wp_disable_ai_plugin_wpforms',
+    'type'              => 'plugin',
+    'name'              => 'wpforms',
     'heading'           => 'WPForms',
     'description'       => 'Disable WPForms\' AI features.'
 );
-output_admin_option( $args );
+output_admin_option( $args, $settings );
 
 $args = array(
-    'utility_var'       => 'wp_disable_ai_plugin_yoast',
+    'type'              => 'plugin',
+    'name'              => 'yoast',
     'heading'           => 'Yoast',
     'description'       => 'Disable Yoast\'s AI features.'
 );
-output_admin_option( $args );
+output_admin_option( $args, $settings );
 ?>
 </table>
 
@@ -127,42 +132,24 @@ output_admin_option( $args );
 
 <?php
 
-function output_admin_option( $args ) {
-    $utility_var = $args['utility_var'] ?? '';
+function output_admin_option( $args , $settings ) {
+    $type = $args['type'] ?? '';
+    $name = $args['name'] ?? '';
     $heading = $args['heading'] ?? '';
     $description = $args['description'] ?? '';
 
-    $utility_constant = strtoupper( $utility_var );
+    $utility_constant = strtoupper( 'wp_disable_ai_' . $type . '_' . $name );
     $utility_value = null;
     $placeholder = '';
     $after_label_msg = '';
     if( defined( $utility_constant ) ) {
         $utility_value = constant( $utility_constant );
         $after_label_msg = "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to enable/disable this setting here.</span></span>";
-    } else {
-        $utility_value = get_option( $utility_var );
+    } else if ( array_key_exists( $type, $settings ) && array_key_exists( $name, $settings[$type] ) ) {
+        $utility_value = $settings[$type][$name];
     }
 
-    $child_output = '';
-
-    if ( ! empty( $child_options ) && is_array( $child_options ) ) {
-        foreach( $child_options as $child ) {
-            $child['is_child'] = true;
-            $child_output .= output_admin_option( $child );
-        }
-        $child_output = "<table class='child-table'>" . $child_output . "</table>";
-    }
-
-    $input_output = "<input type='checkbox' id='$utility_var' name='$utility_var' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
-    if ( ! empty( $type ) ) {
-        if ( empty( $utility_value ) && ! empty( $default ) ) {
-            $placeholder = "placeholder='$default'";
-        }
-
-        if ( 'number' === $type ) {
-            $input_output = $description . "<br/><input type='number' id='$utility_var' name='$utility_var' value='$utility_value' $placeholder" . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>$after_label_msg";
-        }
-    }
+    $input_output = "<input type='checkbox' name='wp_disable_ai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
 
     $allowed_html = array(
         'tr' => array(
@@ -190,10 +177,7 @@ function output_admin_option( $args ) {
 
     $output = "<tr valign='top'>
         <th scope='row'>" . $heading . "</th>" .
-        ( ! empty( $is_child ) && $is_child ? "</tr><tr valign='top'>" : "" ) .
-        "<td><label>$input_output</label>
-        $child_output
-        </td></tr>";
+        "<td><label>$input_output</label></td></tr>";
     
     echo wp_kses( $output, $allowed_html );
 }
