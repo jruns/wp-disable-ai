@@ -6,8 +6,8 @@
  * @link       https://jruns.github.io/
  * @since      0.1
  *
- * @package    Wp_Disable_AI
- * @subpackage Wp_Disable_AI/includes
+ * @package    Disable_AI
+ * @subpackage Disable_AI/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Wp_Disable_AI
- * @subpackage Wp_Disable_AI/includes
+ * @package    Disable_AI
+ * @subpackage Disable_AI/includes
  * @author     Jason Schramm <jason.runs@proton.me>
  */
-class Wp_Disable_AI_Loader {
+class Disable_AI_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

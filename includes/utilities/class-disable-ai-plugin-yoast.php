@@ -1,6 +1,6 @@
 <?php
 
-class Wp_Disable_AI_Plugin_Yoast {
+class Disable_AI_Plugin_Yoast {
 
 	public function __construct() {
 	}

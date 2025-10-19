@@ -8,11 +8,11 @@
  * @link       https://jruns.github.io/
  * @since      0.1
  *
- * @package    Wp_Disable_AI
- * @subpackage Wp_Disable_AI/admin/partials
+ * @package    Disable_AI
+ * @subpackage Disable_AI/admin/partials
  */
 
-$settings = (array) get_option( 'wp_disable_ai_settings', array() );
+$settings = (array) get_option( 'disable_ai_settings', array() );
 ?>
 <style>
     .itemTitle {
@@ -82,15 +82,15 @@ $settings = (array) get_option( 'wp_disable_ai_settings', array() );
 </style>
 
 <div class="wrap">
-<h1><?php esc_html_e( 'WP Disable AI', 'wp-disable-ai' ); ?></h1>
+<h1><?php esc_html_e( 'WP Disable AI', 'disable-ai' ); ?></h1>
 <p class="plugin_intro">Tired of plugins and themes adding AI features you don't want?<br/>Tired of getting nagged all the time to pay for AI features?<br/>This plugin helps you turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.</p>
 
 <form method="post" action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>">
-<?php settings_fields( 'wp-disable-ai' ); ?>
+<?php settings_fields( 'disable-ai' ); ?>
 
 <ul>
 <li class="itemDetail">
-<h2 class="itemTitle"><?php esc_html_e( 'Disable in Plugins', 'wp-disable-ai' ); ?></h2>
+<h2 class="itemTitle"><?php esc_html_e( 'Disable in Plugins', 'disable-ai' ); ?></h2>
 
 <table class="form-table">
 <?php
@@ -124,7 +124,7 @@ output_admin_option( $args, $settings );
 </ul>
 
 <p class="submit">
-<input type="submit" class="button-secondary" value="<?php esc_html_e( 'Save Changes', 'wp-disable-ai' ); ?>" />
+<input type="submit" class="button-secondary" value="<?php esc_html_e( 'Save Changes', 'disable-ai' ); ?>" />
 </p>
 
 </form>
@@ -138,7 +138,7 @@ function output_admin_option( $args , $settings ) {
     $heading = $args['heading'] ?? '';
     $description = $args['description'] ?? '';
 
-    $utility_constant = strtoupper( 'wp_disable_ai_' . $type . '_' . $name );
+    $utility_constant = strtoupper( 'disable_ai_' . $type . '_' . $name );
     $utility_value = null;
     $placeholder = '';
     $after_label_msg = '';
@@ -149,7 +149,7 @@ function output_admin_option( $args , $settings ) {
         $utility_value = absint( $settings[$type][$name] );
     }
 
-    $input_output = "<input type='checkbox' name='wp_disable_ai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
+    $input_output = "<input type='checkbox' name='disable_ai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
 
     $allowed_html = array(
         'tr' => array(

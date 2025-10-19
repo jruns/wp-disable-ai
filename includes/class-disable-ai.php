@@ -9,8 +9,8 @@
  * @link       https://jruns.github.io/
  * @since      0.1
  *
- * @package    Wp_Disable_AI
- * @subpackage Wp_Disable_AI/includes
+ * @package    Disable_AI
+ * @subpackage Disable_AI/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      0.1
- * @package    Wp_Disable_AI
- * @subpackage Wp_Disable_AI/includes
+ * @package    Disable_AI
+ * @subpackage Disable_AI/includes
  * @author     Jason Schramm <jason.runs@proton.me>
  */
-class Wp_Disable_AI {
+class Disable_AI {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Wp_Disable_AI {
 	 *
 	 * @since    0.1
 	 * @access   protected
-	 * @var      Wp_Disable_AI_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Disable_AI_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -76,12 +76,12 @@ class Wp_Disable_AI {
 	 * @since    0.1
 	 */
 	public function __construct() {
-		if ( defined( 'WP_DISABLE_AI_VERSION' ) ) {
-			$this->version = WP_DISABLE_AI_VERSION;
+		if ( defined( 'DISABLE_AI_VERSION' ) ) {
+			$this->version = DISABLE_AI_VERSION;
 		} else {
 			$this->version = '0.1';
 		}
-		$this->plugin_name = 'wp-disable-ai';
+		$this->plugin_name = 'disable-ai';
 
 		$this->load_dependencies();
 		$this->define_admin_hooks();
@@ -93,10 +93,10 @@ class Wp_Disable_AI {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Wp_Disable_AI_Loader. Orchestrates the hooks of the plugin.
-	 * - Wp_Disable_AI_i18n. Defines internationalization functionality.
-	 * - Wp_Disable_AI_Admin. Defines all hooks for the admin area.
-	 * - Wp_Disable_AI_Public. Defines all hooks for the public side of the site.
+	 * - Disable_AI_Loader. Orchestrates the hooks of the plugin.
+	 * - Disable_AI_i18n. Defines internationalization functionality.
+	 * - Disable_AI_Admin. Defines all hooks for the admin area.
+	 * - Disable_AI_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -110,14 +110,14 @@ class Wp_Disable_AI {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wp-disable-ai-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-disable-ai-loader.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-disable-ai-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-disable-ai-admin.php';
 
-		$this->loader = new Wp_Disable_AI_Loader();
+		$this->loader = new Disable_AI_Loader();
 
 	}
 
@@ -130,11 +130,11 @@ class Wp_Disable_AI {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Wp_Disable_AI_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Disable_AI_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'registersettings' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
-		$this->loader->add_action( 'plugin_action_links_' . WP_DISABLE_AI_BASE_NAME, $plugin_admin, 'add_plugin_action_links' );
+		$this->loader->add_action( 'plugin_action_links_' . DISABLE_AI_BASE_NAME, $plugin_admin, 'add_plugin_action_links' );
 	}
 
 	private function load_settings() {
@@ -143,13 +143,13 @@ class Wp_Disable_AI {
 			'theme' => array(),
 			'core' => array()
 		);
-		$this->settings = wp_parse_args( get_option( 'wp_disable_ai_settings' ), $defaults );
+		$this->settings = wp_parse_args( get_option( 'disable_ai_settings' ), $defaults );
 	}
 
 	private function utility_is_active( $className ) {
 		$constant_name = strtoupper( $className );
 
-		$utility = explode( '_', str_replace( 'wp_disable_ai_', '', strtolower( $className ) ) );
+		$utility = explode( '_', str_replace( 'disable_ai_', '', strtolower( $className ) ) );
 
 		$utility_type = $utility[0] ?? '';
 		$utility_name = $utility[1] ?? '';
@@ -221,7 +221,7 @@ class Wp_Disable_AI {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     0.1
-	 * @return    Wp_Disable_AI_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Disable_AI_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

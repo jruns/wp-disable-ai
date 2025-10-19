@@ -6,7 +6,7 @@
  * @link       https://jruns.github.io/
  * @since      0.1
  *
- * @package    Wp_Disable_AI
+ * @package    Disable_AI
  */
 
 // If uninstall not called from WordPress, then exit.

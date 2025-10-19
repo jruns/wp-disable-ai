@@ -4,7 +4,7 @@
  *
  * @link              https://jruns.github.io/
  * @since             0.1
- * @package           Wp_Disable_AI
+ * @package           Disable_AI
  *
  * @wordpress-plugin
  * Plugin Name:       Disable AI
@@ -15,7 +15,7 @@
  * Author URI:        https://github.com/jruns
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wp-disable-ai
+ * Text Domain:       disable-ai
  * Requires at least: 6.0
  * Requires PHP:      7.4
  */
@@ -25,35 +25,35 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'WP_DISABLE_AI_VERSION', '0.1' );
-define( 'WP_DISABLE_AI_BASE_NAME', plugin_basename( __FILE__ ) );
+define( 'DISABLE_AI_VERSION', '0.1' );
+define( 'DISABLE_AI_BASE_NAME', plugin_basename( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-wp-disable-ai-activator.php
+ * This action is documented in includes/class-disable-ai-activator.php
  */
-function activate_wp_disable_ai() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-disable-ai-activator.php';
-	Wp_Disable_AI_Activator::activate();
+function activate_disable_ai() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai-activator.php';
+	Disable_AI_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-wp-disable-ai-deactivator.php
+ * This action is documented in includes/class-disable-ai-deactivator.php
  */
-function deactivate_wp_disable_ai() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-disable-ai-deactivator.php';
-	Wp_Disable_AI_Deactivator::deactivate();
+function deactivate_disable_ai() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai-deactivator.php';
+	Disable_AI_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_wp_disable_ai' );
-register_deactivation_hook( __FILE__, 'deactivate_wp_disable_ai' );
+register_activation_hook( __FILE__, 'activate_disable_ai' );
+register_deactivation_hook( __FILE__, 'deactivate_disable_ai' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-wp-disable-ai.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai.php';
 
 /**
  * Begins execution of the plugin.
@@ -64,10 +64,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wp-disable-ai.php';
  *
  * @since    0.1
  */
-function run_wp_disable_ai() {
+function run_disable_ai() {
 
-	$plugin = new Wp_Disable_AI();
+	$plugin = new Disable_AI();
 	$plugin->run();
 
 }
-run_wp_disable_ai();
+run_disable_ai();

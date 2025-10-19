@@ -6,18 +6,18 @@
  * @link       https://jruns.github.io/
  * @since      0.1
  *
- * @package    Wp_Disable_AI
- * @subpackage Wp_Disable_AI/admin
+ * @package    Disable_AI
+ * @subpackage Disable_AI/admin
  */
 
 /**
  * The admin-specific functionality of the plugin.
  *
- * @package    Wp_Disable_AI
- * @subpackage Wp_Disable_AI/admin
+ * @package    Disable_AI
+ * @subpackage Disable_AI/admin
  * @author     Jason Schramm <jason.runs@proton.me>
  */
-class Wp_Disable_AI_Admin {
+class Disable_AI_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -55,7 +55,7 @@ class Wp_Disable_AI_Admin {
 			'WP Disable AI',
 			'WP Disable AI',
 			'manage_options',
-			'wp-disable-ai',
+			'disable-ai',
 			array( $this, 'render_options_page' )
 		);
 	}
@@ -68,8 +68,8 @@ class Wp_Disable_AI_Admin {
 		);
 
         register_setting(
-			'wp-disable-ai',
-			'wp_disable_ai_settings',
+			'disable-ai',
+			'disable_ai_settings',
 			array(
 				'type'              => 'array',
 				'show_in_rest'      => false,
@@ -79,13 +79,13 @@ class Wp_Disable_AI_Admin {
     }
 
 	public function render_options_page() {
-		require_once( plugin_dir_path( __FILE__ ) . 'partials/wp-disable-ai-admin-options-display.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/disable-ai-admin-options-display.php' );
 	}
 
 	public function add_plugin_action_links( array $links ) {
-		$settings_url = menu_page_url( 'wp-disable-ai', false );
+		$settings_url = menu_page_url( 'disable-ai', false );
 		return array_merge( array(
-			'settings' => '<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'wp-disable-ai' ) . '</a>',
+			'settings' => '<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'disable-ai' ) . '</a>',
 		), $links );
 	}
 }

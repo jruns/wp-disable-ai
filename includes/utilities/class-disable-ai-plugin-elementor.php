@@ -1,6 +1,6 @@
 <?php
 
-class Wp_Disable_AI_Plugin_Elementor {
+class Disable_AI_Plugin_Elementor {
 
 	public function __construct() {
 	}

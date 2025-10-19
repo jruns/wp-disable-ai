@@ -6,8 +6,8 @@
  * @link       https://jruns.github.io/
  * @since      0.1
  *
- * @package    Wp_Disable_AI
- * @subpackage Wp_Disable_AI/includes
+ * @package    Disable_AI
+ * @subpackage Disable_AI/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      0.1
- * @package    Wp_Disable_AI
- * @subpackage Wp_Disable_AI/includes
+ * @package    Disable_AI
+ * @subpackage Disable_AI/includes
  * @author     Jason Schramm <jason.runs@proton.me>
  */
-class Wp_Disable_AI_Activator {
+class Disable_AI_Activator {
 
 	/**
 	 * Short Description. (use period)
