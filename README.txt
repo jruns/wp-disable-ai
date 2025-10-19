@@ -7,11 +7,12 @@ Stable tag: 0.1
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-WP Disable AI is a WordPress plugin to disable AI features in plugins, themes, and WordPress Core.
+Turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.
 
 == Description ==
 
-WP Disable AI is a WordPress plugin to disable AI features in plugins, themes, and WordPress Core. It includes support for turning off unwanted AI features and notifications in plugins, themes, and WordPress Core.
+Tired of plugins and themes adding AI features you don't want?
+Tired of getting bothered all the time to pay for AI features?
 
 This plugin currently supports disabling AI features and notifications in:
 
