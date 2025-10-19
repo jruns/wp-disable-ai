@@ -14,6 +14,12 @@ WP Disable AI is a WordPress plugin to disable AI features in plugins, themes, a
 
 WP Disable AI is a WordPress plugin to disable AI features in plugins, themes, and WordPress Core. It includes support for turning off unwanted AI features and notifications in plugins, themes, and WordPress Core.
 
+This plugin currently supports disabling AI features and notifications in:
+
+* Elementor
+* WPForms Lite
+* Yoast SEO
+
 == Installation ==
 
 From your WordPress dashboard
@@ -32,4 +38,4 @@ Because AI can have negative impacts on people and the planet. And because AI sh
 == Changelog ==
 
 = 0.1 =
-* Initial release
+* Initial release with support for disabling AI in Elementor, WPForms Lite, and Yoast SEO.
