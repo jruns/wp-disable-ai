@@ -11,11 +11,13 @@
  * Plugin URI:        https://github.com/jruns/wp-disable-ai
  * Description:       Disable AI features in plugins, themes, and WordPress Core.
  * Version:           0.1
- * Author:            Jason Schramm
- * Author URI:        https://jruns.github.io/
+ * Author:            jruns
+ * Author URI:        https://github.com/jruns
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wp-disable-ai
+ * Requires at least: 6.0
+ * Requires PHP:      7.4
  */
 
 // If this file is called directly, abort.

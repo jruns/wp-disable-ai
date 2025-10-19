@@ -1,6 +1,5 @@
 === WP Disable AI ===
 Contributors: jruns
-Donate link: https://jruns.github.io/
 Tags: ai, artificial intelligence, sustainability
 Requires at least: 6.0
 Tested up to: 6.8
