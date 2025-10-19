@@ -1,4 +1,4 @@
-=== WP Disable AI ===
+=== Disable AI ===
 Contributors: jruns
 Tags: ai, artificial intelligence, sustainability
 Requires at least: 6.0
