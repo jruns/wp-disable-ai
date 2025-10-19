@@ -12,7 +12,7 @@ WP Disable AI is a WordPress plugin to disable AI features in plugins, themes, a
 
 == Description ==
 
-WP Disable AI is a WordPress plugin to disable AI features in plugins, themes, and WordPress Core. It includes support for disabling unwanted AI features in specific plugins and themes.
+WP Disable AI is a WordPress plugin to disable AI features in plugins, themes, and WordPress Core. It includes support for turning off unwanted AI features and notifications in plugins, themes, and WordPress Core.
 
 == Installation ==
 
@@ -27,9 +27,9 @@ From your WordPress dashboard
 
 = Why is this free? =
 
-Because AI has negative impacts on people and the planet. And because AI should not be forced on anyone.
+Because AI can have negative impacts on people and the planet. And because AI should not be forced on anyone.
 
 == Changelog ==
 
-= 1.0 =
+= 0.1 =
 * Initial release
