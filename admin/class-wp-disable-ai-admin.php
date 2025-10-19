@@ -61,9 +61,38 @@ class Wp_Disable_AI_Admin {
 	}
 	
     public function registersettings() {
-        register_setting( 'wp-disable-ai', 'wp_disable_ai_plugin_elementor');
-        register_setting( 'wp-disable-ai', 'wp_disable_ai_plugin_wpforms');
-        register_setting( 'wp-disable-ai', 'wp_disable_ai_plugin_yoast');
+        register_setting(
+			'wp-disable-ai',
+			'wp_disable_ai_plugin_elementor',
+			array(
+				'type'              => 'integer',
+				'sanitize_callback' => 'absint',
+				'show_in_rest'      => false,
+				'default'           => '0',
+			)
+		);
+
+        register_setting(
+			'wp-disable-ai',
+			'wp_disable_ai_plugin_wpforms',
+			array(
+				'type'              => 'integer',
+				'sanitize_callback' => 'absint',
+				'show_in_rest'      => false,
+				'default'           => '0',
+			)
+		);
+		
+        register_setting(
+			'wp-disable-ai',
+			'wp_disable_ai_plugin_yoast',
+			array(
+				'type'              => 'integer',
+				'sanitize_callback' => 'absint',
+				'show_in_rest'      => false,
+				'default'           => '0',
+			)
+		);
     }
 
 	public function render_options_page() {

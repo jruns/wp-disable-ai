@@ -83,12 +83,12 @@
 <h1><?php esc_html_e( 'WP Disable AI', 'wp-disable-ai' ); ?></h1>
 <p class="plugin_intro">Tired of plugins and themes adding AI features you don't want?<br/>Tired of getting nagged all the time to pay for AI features?<br/>This plugin helps you turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.</p>
 
-<form method="post" action="<?php echo admin_url( 'options.php' ); ?>">
+<form method="post" action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>">
 <?php settings_fields( 'wp-disable-ai' ); ?>
 
 <ul>
 <li class="itemDetail">
-<h2 class="itemTitle"><?php _e( 'Disable in Plugins', 'wp-disable-ai' ); ?></h2>
+<h2 class="itemTitle"><?php esc_html_e( 'Disable in Plugins', 'wp-disable-ai' ); ?></h2>
 
 <table class="form-table">
 <?php
@@ -97,21 +97,21 @@ $args = array(
     'heading'           => 'Elementor',
     'description'       => 'Disable Elementor\'s AI features.'
 );
-echo output_admin_option( $args );
+output_admin_option( $args );
 
 $args = array(
     'utility_var'       => 'wp_disable_ai_plugin_wpforms',
     'heading'           => 'WPForms',
     'description'       => 'Disable WPForms\' AI features.'
 );
-echo output_admin_option( $args );
+output_admin_option( $args );
 
 $args = array(
     'utility_var'       => 'wp_disable_ai_plugin_yoast',
     'heading'           => 'Yoast',
     'description'       => 'Disable Yoast\'s AI features.'
 );
-echo output_admin_option( $args );
+output_admin_option( $args );
 ?>
 </table>
 
@@ -119,7 +119,7 @@ echo output_admin_option( $args );
 </ul>
 
 <p class="submit">
-<input type="submit" class="button-secondary" value="<?php _e( 'Save Changes', 'eventcore' ); ?>" />
+<input type="submit" class="button-secondary" value="<?php esc_html_e( 'Save Changes', 'wp-disable-ai' ); ?>" />
 </p>
 
 </form>
@@ -128,7 +128,9 @@ echo output_admin_option( $args );
 <?php
 
 function output_admin_option( $args ) {
-    extract( $args );
+    $utility_var = $args['utility_var'] ?? '';
+    $heading = $args['heading'] ?? '';
+    $description = $args['description'] ?? '';
 
     $utility_constant = strtoupper( $utility_var );
     $utility_value = null;
@@ -136,7 +138,7 @@ function output_admin_option( $args ) {
     $after_label_msg = '';
     if( defined( $utility_constant ) ) {
         $utility_value = constant( $utility_constant );
-        $after_label_msg = __( "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to enable/disable this setting here.</span></span>" );
+        $after_label_msg = "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to enable/disable this setting here.</span></span>";
     } else {
         $utility_value = get_option( $utility_var );
     }
@@ -151,21 +153,47 @@ function output_admin_option( $args ) {
         $child_output = "<table class='child-table'>" . $child_output . "</table>";
     }
 
-    $input_output = "<input type='checkbox' id='$utility_var' name='$utility_var' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . __( $description, 'wp-disable-ai' ) . "$after_label_msg";
+    $input_output = "<input type='checkbox' id='$utility_var' name='$utility_var' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
     if ( ! empty( $type ) ) {
         if ( empty( $utility_value ) && ! empty( $default ) ) {
             $placeholder = "placeholder='$default'";
         }
 
         if ( 'number' === $type ) {
-            $input_output = __( $description, 'wp-disable-ai' ) . "<br/><input type='number' id='$utility_var' name='$utility_var' value='$utility_value' $placeholder" . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>$after_label_msg";
+            $input_output = $description . "<br/><input type='number' id='$utility_var' name='$utility_var' value='$utility_value' $placeholder" . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>$after_label_msg";
         }
     }
 
-    return "<tr valign='top'>
-        <th scope='row'>" . __( $heading, 'wp-disable-ai' ) . "</th>" .
+    $allowed_html = array(
+        'tr' => array(
+			'valign' => array(),
+        ),
+        'th' => array(
+			'scope' => array(),
+        ),
+        'td' => array(),
+        'label' => array(),
+		'input' => array(
+			'type' => array(),
+			'id' => array(),
+			'name' => array(),
+			'value' => array(),
+			'checked' => array(),
+			'disabled' => array(),
+		),
+		'span' => array(
+			'class' => array(),
+		),
+        'p' => array(),
+        'br' => array(),
+    );
+
+    $output = "<tr valign='top'>
+        <th scope='row'>" . $heading . "</th>" .
         ( ! empty( $is_child ) && $is_child ? "</tr><tr valign='top'>" : "" ) .
         "<td><label>$input_output</label>
         $child_output
         </td></tr>";
+    
+    echo wp_kses( $output, $allowed_html );
 }
