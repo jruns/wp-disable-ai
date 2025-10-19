@@ -1,26 +1,23 @@
 <?php
 
 /**
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
  *
  * @link              https://jruns.github.io/
- * @since             0.1.0
+ * @since             0.1
  * @package           Wp_Disable_AI
  *
  * @wordpress-plugin
  * Plugin Name:       WP Disable AI
  * Plugin URI:        https://github.com/jruns/wp-disable-ai
- * Description:       Disable AI features in plugins, themes, and WordPress Core.
- * Version:           0.1.0
- * Author:            Jason Schramm
- * Author URI:        https://jruns.github.io/
+ * Description:       Turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.
+ * Version:           0.1
+ * Author:            jruns
+ * Author URI:        https://github.com/jruns
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wp-disable-ai
- * Domain Path:       /languages
+ * Requires at least: 6.0
+ * Requires PHP:      7.4
  */
 
 // If this file is called directly, abort.
@@ -28,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'WP_DISABLE_AI_VERSION', '0.1.0' );
+define( 'WP_DISABLE_AI_VERSION', '0.1' );
 define( 'WP_DISABLE_AI_BASE_NAME', plugin_basename( __FILE__ ) );
 
 /**
@@ -65,7 +62,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wp-disable-ai.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.1.0
+ * @since    0.1
  */
 function run_wp_disable_ai() {
 

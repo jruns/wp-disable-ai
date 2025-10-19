@@ -7,7 +7,7 @@
  * public-facing side of the site and the admin area.
  *
  * @link       https://jruns.github.io/
- * @since      0.1.0
+ * @since      0.1
  *
  * @package    Wp_Disable_AI
  * @subpackage Wp_Disable_AI/includes
@@ -22,7 +22,7 @@
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
  *
- * @since      0.1.0
+ * @since      0.1
  * @package    Wp_Disable_AI
  * @subpackage Wp_Disable_AI/includes
  * @author     Jason Schramm <jason.runs@proton.me>
@@ -33,7 +33,7 @@ class Wp_Disable_AI {
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 * @access   protected
 	 * @var      Wp_Disable_AI_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
@@ -42,7 +42,7 @@ class Wp_Disable_AI {
 	/**
 	 * The unique identifier of this plugin.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 * @access   protected
 	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
@@ -51,7 +51,7 @@ class Wp_Disable_AI {
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
@@ -64,13 +64,13 @@ class Wp_Disable_AI {
 	 * Load the dependencies, define the locale, and set the hooks for the admin area and
 	 * the public-facing side of the site.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 */
 	public function __construct() {
 		if ( defined( 'WP_DISABLE_AI_VERSION' ) ) {
 			$this->version = WP_DISABLE_AI_VERSION;
 		} else {
-			$this->version = '0.1.0';
+			$this->version = '0.1';
 		}
 		$this->plugin_name = 'wp-disable-ai';
 
@@ -92,7 +92,7 @@ class Wp_Disable_AI {
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 * @access   private
 	 */
 	private function load_dependencies() {
@@ -116,7 +116,7 @@ class Wp_Disable_AI {
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
@@ -177,7 +177,7 @@ class Wp_Disable_AI {
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
-	 * @since    0.1.0
+	 * @since    0.1
 	 */
 	public function run() {
 		$this->loader->run();
@@ -187,7 +187,7 @@ class Wp_Disable_AI {
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
-	 * @since     0.1.0
+	 * @since     0.1
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
@@ -197,7 +197,7 @@ class Wp_Disable_AI {
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
-	 * @since     0.1.0
+	 * @since     0.1
 	 * @return    Wp_Disable_AI_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
@@ -207,7 +207,7 @@ class Wp_Disable_AI {
 	/**
 	 * Retrieve the version number of the plugin.
 	 *
-	 * @since     0.1.0
+	 * @since     0.1
 	 * @return    string    The version number of the plugin.
 	 */
 	public function get_version() {

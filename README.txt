@@ -1,18 +1,24 @@
-=== Plugin Name ===
+=== WP Disable AI ===
 Contributors: jruns
-Donate link: https://jruns.github.io/
 Tags: ai, artificial intelligence, sustainability
 Requires at least: 6.0
-Tested up to: 6.8.2
-Stable tag: 0.1.0
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Tested up to: 6.8
+Stable tag: 0.1
+License: GPL-2.0+
+License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-WP Disable AI is a WordPress plugin to disable AI features in plugins, themes, and WordPress Core.
+Turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.
 
 == Description ==
 
-WP Disable AI is a WordPress plugin to disable AI features in plugins, themes, and WordPress Core. It includes support for disabling unwanted AI features in specific plugins and themes.
+Tired of plugins and themes adding AI features you don't want?
+Tired of getting bothered all the time to pay for AI features?
+
+This plugin currently supports disabling AI features and notifications in:
+
+* Elementor
+* WPForms Lite
+* Yoast SEO
 
 == Installation ==
 
@@ -27,9 +33,9 @@ From your WordPress dashboard
 
 = Why is this free? =
 
-Because AI has negative impacts on people and the planet. And because AI should not be forced on anyone.
+Because AI can have negative impacts on people and the planet. And because AI should not be forced on anyone.
 
 == Changelog ==
 
-= 1.0 =
-* Initial release
+= 0.1 =
+* Initial release with support for disabling AI in Elementor, WPForms Lite, and Yoast SEO.
