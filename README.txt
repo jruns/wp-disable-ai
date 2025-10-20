@@ -3,7 +3,7 @@ Contributors: jruns
 Tags: ai, artificial intelligence, sustainability
 Requires at least: 6.0
 Tested up to: 6.8
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -16,6 +16,7 @@ Tired of getting bothered all the time to pay for AI features?
 
 This plugin currently supports disabling AI features and notifications in:
 
+* All in One SEO
 * Elementor
 * WPForms Lite
 * Yoast SEO
@@ -36,6 +37,9 @@ From your WordPress dashboard
 Because AI can have negative impacts on people and the planet. And because AI should not be forced on anyone.
 
 == Changelog ==
+
+= 0.2 =
+* Add support for All in One SEO. Hide AI menu items and tabs, hide AI buttons, and remove the Writing Assistant metabox in the post editor.
 
 = 0.1 =
 * Initial release with support for disabling AI in Elementor, WPForms Lite, and Yoast SEO.

@@ -96,6 +96,14 @@ $settings = (array) get_option( 'disable_ai_settings', array() );
 <?php
 $args = array(
     'type'              => 'plugin',
+    'name'              => 'aioseo',
+    'heading'           => 'All in One SEO',
+    'description'       => 'Disable All in One SEO\'s AI features. Removes the Writing Assistant and AI-related buttons, menu items and tabs from the WordPress Editor.'
+);
+output_admin_option( $args, $settings );
+
+$args = array(
+    'type'              => 'plugin',
     'name'              => 'elementor',
     'heading'           => 'Elementor',
     'description'       => 'Disable Elementor\'s AI features.'
