@@ -82,7 +82,7 @@ $settings = (array) get_option( 'disable_ai_settings', array() );
 </style>
 
 <div class="wrap">
-<h1><?php esc_html_e( 'WP Disable AI', 'disable-ai' ); ?></h1>
+<h1><?php esc_html_e( 'Disable AI', 'disable-ai' ); ?></h1>
 <p class="plugin_intro">Tired of plugins and themes adding AI features you don't want?<br/>Tired of getting nagged all the time to pay for AI features?<br/>This plugin helps you turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.</p>
 
 <form method="post" action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>">

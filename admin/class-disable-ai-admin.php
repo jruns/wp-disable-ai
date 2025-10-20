@@ -52,8 +52,8 @@ class Disable_AI_Admin {
 
 	public function add_options_page() {
 		add_options_page(
-			'WP Disable AI',
-			'WP Disable AI',
+			'Disable AI',
+			'Disable AI',
 			'manage_options',
 			'disable-ai',
 			array( $this, 'render_options_page' )
