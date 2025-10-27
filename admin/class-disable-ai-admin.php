@@ -3,19 +3,11 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://jruns.github.io/
+ * @link       https://github.com/jruns/wp-disable-ai
  * @since      0.1
  *
  * @package    Disable_AI
  * @subpackage Disable_AI/admin
- */
-
-/**
- * The admin-specific functionality of the plugin.
- *
- * @package    Disable_AI
- * @subpackage Disable_AI/admin
- * @author     Jason Schramm <jason.runs@proton.me>
  */
 class Disable_AI_Admin {
 

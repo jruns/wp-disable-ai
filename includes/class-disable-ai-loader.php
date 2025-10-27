@@ -2,24 +2,16 @@
 
 /**
  * Register all actions and filters for the plugin
- *
- * @link       https://jruns.github.io/
- * @since      0.1
- *
- * @package    Disable_AI
- * @subpackage Disable_AI/includes
- */
-
-/**
- * Register all actions and filters for the plugin.
- *
+ * 
  * Maintain a list of all hooks that are registered throughout
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
+ * @link       https://github.com/jruns/wp-disable-ai
+ * @since      0.1
+ *
  * @package    Disable_AI
  * @subpackage Disable_AI/includes
- * @author     Jason Schramm <jason.runs@proton.me>
  */
 class Disable_AI_Loader {
 

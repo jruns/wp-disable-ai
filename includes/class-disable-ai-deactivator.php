@@ -2,23 +2,14 @@
 
 /**
  * Fired during plugin deactivation
- *
- * @link       https://jruns.github.io/
- * @since      0.1
- *
- * @package    Disable_AI
- * @subpackage Disable_AI/includes
- */
-
-/**
- * Fired during plugin deactivation.
- *
+ * 
  * This class defines all code necessary to run during the plugin's deactivation.
  *
+ * @link       https://github.com/jruns/wp-disable-ai
  * @since      0.1
+ *
  * @package    Disable_AI
  * @subpackage Disable_AI/includes
- * @author     Jason Schramm <jason.runs@proton.me>
  */
 class Disable_AI_Deactivator {
 

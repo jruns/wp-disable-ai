@@ -5,7 +5,7 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       https://jruns.github.io/
+ * @link       https://github.com/jruns/wp-disable-ai
  * @since      0.1
  *
  * @package    Disable_AI

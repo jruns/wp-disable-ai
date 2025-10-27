@@ -2,23 +2,14 @@
 
 /**
  * Fired during plugin activation
- *
- * @link       https://jruns.github.io/
- * @since      0.1
- *
- * @package    Disable_AI
- * @subpackage Disable_AI/includes
- */
-
-/**
- * Fired during plugin activation.
- *
+ * 
  * This class defines all code necessary to run during the plugin's activation.
  *
+ * @link       https://github.com/jruns/wp-disable-ai
  * @since      0.1
+ *
  * @package    Disable_AI
  * @subpackage Disable_AI/includes
- * @author     Jason Schramm <jason.runs@proton.me>
  */
 class Disable_AI_Activator {
 

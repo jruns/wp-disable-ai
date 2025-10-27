@@ -2,7 +2,7 @@
 
 /**
  *
- * @link              https://jruns.github.io/
+ * @link              https://github.com/jruns
  * @since             0.1
  * @package           Disable_AI
  *
