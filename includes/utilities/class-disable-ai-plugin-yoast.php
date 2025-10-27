@@ -27,7 +27,7 @@ class Disable_AI_Plugin_Yoast {
 			return;
 		}
 
-		wp_enqueue_style( 'disaai-yoast-admin-profile', plugin_dir_url( __DIR__ ) . 'css/yoast_admin_profile.css', array(), constant( 'DISABLE_AI_VERSION' ) );
+		wp_enqueue_style( 'disaai-yoast-admin-profile', plugin_dir_url( __DIR__ ) . 'css/yoast_admin_profile.css', array(), constant( 'DISAI_VERSION' ) );
 	}
 
 	public function hide_ai_upsell_modals( $introductions ) {

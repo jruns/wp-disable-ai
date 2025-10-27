@@ -68,8 +68,8 @@ class Disable_AI {
 	 * @since    0.1
 	 */
 	public function __construct() {
-		if ( defined( 'DISABLE_AI_VERSION' ) ) {
-			$this->version = DISABLE_AI_VERSION;
+		if ( defined( 'DISAI_VERSION' ) ) {
+			$this->version = DISAI_VERSION;
 		} else {
 			$this->version = '0.3';
 		}
@@ -126,7 +126,7 @@ class Disable_AI {
 
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'registersettings' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
-		$this->loader->add_action( 'plugin_action_links_' . DISABLE_AI_BASE_NAME, $plugin_admin, 'add_plugin_action_links' );
+		$this->loader->add_action( 'plugin_action_links_' . DISAI_BASE_NAME, $plugin_admin, 'add_plugin_action_links' );
 	}
 
 	private function load_settings() {

@@ -90,7 +90,7 @@ class Disable_AI_Admin {
 			return;
 		}
 
-		wp_enqueue_style( 'disaai-admin-options', plugin_dir_url( __FILE__ ) . 'css/admin_options.css', array(), constant( 'DISABLE_AI_VERSION' ) );
+		wp_enqueue_style( 'disaai-admin-options', plugin_dir_url( __FILE__ ) . 'css/admin_options.css', array(), constant( 'DISAI_VERSION' ) );
 	}
 
 	public function add_plugin_action_links( array $links ) {

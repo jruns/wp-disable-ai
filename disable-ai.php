@@ -23,8 +23,8 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'DISABLE_AI_VERSION', '0.3' );
-define( 'DISABLE_AI_BASE_NAME', plugin_basename( __FILE__ ) );
+define( 'DISAI_VERSION', '0.3' );
+define( 'DISAI_BASE_NAME', plugin_basename( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.
