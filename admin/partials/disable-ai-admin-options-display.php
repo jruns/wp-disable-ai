@@ -37,7 +37,7 @@ $args = array(
     'heading'           => 'All in One SEO',
     'description'       => 'Disable All in One SEO\'s AI features. Removes the Writing Assistant and AI-related buttons, menu items and tabs from the WordPress Editor.'
 );
-output_admin_option( $args, $settings );
+disaai_output_admin_option( $args, $settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -45,7 +45,7 @@ $args = array(
     'heading'           => 'Elementor',
     'description'       => 'Disable Elementor\'s AI features.'
 );
-output_admin_option( $args, $settings );
+disaai_output_admin_option( $args, $settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -53,7 +53,7 @@ $args = array(
     'heading'           => 'WPForms',
     'description'       => 'Disable WPForms\' AI features.'
 );
-output_admin_option( $args, $settings );
+disaai_output_admin_option( $args, $settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -61,7 +61,7 @@ $args = array(
     'heading'           => 'Yoast',
     'description'       => 'Disable Yoast\'s AI features.'
 );
-output_admin_option( $args, $settings );
+disaai_output_admin_option( $args, $settings );
 ?>
 </table>
 
@@ -77,7 +77,7 @@ output_admin_option( $args, $settings );
 
 <?php
 
-function output_admin_option( $args , $settings ) {
+function disaai_output_admin_option( $args , $settings ) {
     $type = $args['type'] ?? '';
     $name = $args['name'] ?? '';
     $heading = $args['heading'] ?? '';
