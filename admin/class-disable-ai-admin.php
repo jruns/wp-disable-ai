@@ -63,7 +63,7 @@ class Disable_AI_Admin {
 
         register_setting(
 			'disable-ai',
-			'disable_ai_settings',
+			'disaai_settings',
 			array(
 				'type'              	=> 'array',
 				'sanitize_callback'		=> array( $this, 'sanitize_array' ),

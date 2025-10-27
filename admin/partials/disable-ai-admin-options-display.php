@@ -12,7 +12,7 @@
  * @subpackage Disable_AI/admin/partials
  */
 
-$settings = (array) get_option( 'disable_ai_settings', array() );
+$settings = (array) get_option( 'disaai_settings', array() );
 ?>
 
 <div class="wrap">
@@ -80,7 +80,7 @@ function output_admin_option( $args , $settings ) {
     $heading = $args['heading'] ?? '';
     $description = $args['description'] ?? '';
 
-    $utility_constant = strtoupper( 'disable_ai_' . $type . '_' . $name );
+    $utility_constant = strtoupper( 'disaai_' . $type . '_' . $name );
     $utility_value = null;
     $placeholder = '';
     $after_label_msg = '';
@@ -91,7 +91,7 @@ function output_admin_option( $args , $settings ) {
         $utility_value = absint( $settings[$type][$name] );
     }
 
-    $input_output = "<input type='checkbox' name='disable_ai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
+    $input_output = "<input type='checkbox' name='disaai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
 
     $allowed_html = array(
         'tr' => array(
