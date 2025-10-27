@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Fired when Yoast SEO utility is active.
+ * 
+ * This class defines all code necessary to disable AI features in Yoast SEO.
+ *
+ * @link       https://github.com/jruns/wp-disable-ai
+ * @since      0.1.0
+ *
+ * @package    DisableAI
+ * @subpackage DisableAI/includes/utilities
+ */
+
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -41,7 +53,7 @@ class DISAI_Plugin_Yoast {
 	/**
 	 * Execute commands after initialization
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 */
 	public function run() {
 		add_filter( 'option_wpseo', array( $this, 'disable_ai_generator' ), 10, 1 );

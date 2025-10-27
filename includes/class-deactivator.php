@@ -6,10 +6,10 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @link       https://github.com/jruns/wp-disable-ai
- * @since      0.1
+ * @since      0.1.0
  *
- * @package    Disable_AI
- * @subpackage Disable_AI/includes
+ * @package    DisableAI
+ * @subpackage DisableAI/includes
  */
 
 // Exit if accessed directly
@@ -18,11 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class DISAI_Deactivator {
 
 	/**
-	 * Short Description. (use period)
+	 * Function called on deactivation.
 	 *
-	 * Long Description.
-	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 */
 	public static function deactivate() {
 

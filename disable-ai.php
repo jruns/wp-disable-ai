@@ -3,8 +3,8 @@
 /**
  *
  * @link              https://github.com/jruns
- * @since             0.1
- * @package           Disable_AI
+ * @since             0.1.0
+ * @package           DisableAI
  *
  * @wordpress-plugin
  * Plugin Name:       Disable AI
@@ -60,7 +60,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-disableai.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.1
+ * @since    0.1.0
  */
 function run_disable_ai() {
 

@@ -10,10 +10,10 @@
  * version of the plugin.
  *
  * @link       https://github.com/jruns/wp-disable-ai
- * @since      0.1
+ * @since      0.1.0
  *
- * @package    Disable_AI
- * @subpackage Disable_AI/includes
+ * @package    DisableAI
+ * @subpackage DisableAI/includes
  */
 
 // Exit if accessed directly
@@ -25,7 +25,7 @@ class DisableAI {
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @access   protected
 	 * @var      DISAI_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
@@ -34,7 +34,7 @@ class DisableAI {
 	/**
 	 * The unique identifier of this plugin.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @access   protected
 	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
@@ -43,7 +43,7 @@ class DisableAI {
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
@@ -52,7 +52,7 @@ class DisableAI {
 	/**
 	 * The current plugin settings.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @access   protected
 	 * @var      array    $settings    The current plugin settings.
 	 */
@@ -65,7 +65,7 @@ class DisableAI {
 	 * Load the dependencies, define the locale, and set the hooks for the admin area and
 	 * the public-facing side of the site.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 */
 	public function __construct() {
 		if ( defined( 'DISAI_VERSION' ) ) {
@@ -91,7 +91,7 @@ class DisableAI {
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @access   private
 	 */
 	private function load_dependencies() {
@@ -115,7 +115,7 @@ class DisableAI {
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
@@ -191,7 +191,7 @@ class DisableAI {
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 */
 	public function run() {
 		$this->loader->run();
@@ -201,7 +201,7 @@ class DisableAI {
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
-	 * @since     0.1
+	 * @since     0.1.0
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
@@ -211,7 +211,7 @@ class DisableAI {
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
-	 * @since     0.1
+	 * @since     0.1.0
 	 * @return    DISAI_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
@@ -221,7 +221,7 @@ class DisableAI {
 	/**
 	 * Retrieve the version number of the plugin.
 	 *
-	 * @since     0.1
+	 * @since     0.1.0
 	 * @return    string    The version number of the plugin.
 	 */
 	public function get_version() {

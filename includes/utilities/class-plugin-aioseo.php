@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * Fired when AIOSEO utility is active.
+ * 
+ * This class defines all code necessary to disable AI features in AIOSEO.
+ *
+ * @link       https://github.com/jruns/wp-disable-ai
+ * @since      0.2.0
+ *
+ * @package    DisableAI
+ * @subpackage DisableAI/includes/utilities
+ */
+
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -19,7 +31,7 @@ class DISAI_Plugin_Aioseo {
 	/**
 	 * Execute commands after initialization
 	 *
-	 * @since    0.2
+	 * @since    0.2.0
 	 */
 	public function run() {
 		add_action( 'add_meta_boxes', array( $this, 'remove_writing_assistant_meta_box' ), 100, 2 );
