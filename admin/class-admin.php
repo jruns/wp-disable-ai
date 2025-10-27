@@ -13,7 +13,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Disable_AI_Admin {
+class DISAI_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -82,7 +82,7 @@ class Disable_AI_Admin {
 	}
 
 	public function render_options_page() {
-		require_once( plugin_dir_path( __FILE__ ) . 'partials/disable-ai-admin-options-display.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/admin-options-display.php' );
 	}
 
 	public function enqueue_admin_options_style( $hook ) {

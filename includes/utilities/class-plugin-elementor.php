@@ -3,7 +3,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Disable_AI_Plugin_Elementor {
+class DISAI_Plugin_Elementor {
 
 	public function __construct() {
 	}

@@ -19,7 +19,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Disable_AI {
+class DisableAI {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -27,7 +27,7 @@ class Disable_AI {
 	 *
 	 * @since    0.1
 	 * @access   protected
-	 * @var      Disable_AI_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      DISAI_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -85,10 +85,8 @@ class Disable_AI {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Disable_AI_Loader. Orchestrates the hooks of the plugin.
-	 * - Disable_AI_i18n. Defines internationalization functionality.
-	 * - Disable_AI_Admin. Defines all hooks for the admin area.
-	 * - Disable_AI_Public. Defines all hooks for the public side of the site.
+	 * - DISAI_Loader. Orchestrates the hooks of the plugin.
+	 * - DISAI_Admin. Defines all hooks for the admin area.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -102,14 +100,14 @@ class Disable_AI {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-disable-ai-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-loader.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-disable-ai-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-admin.php';
 
-		$this->loader = new Disable_AI_Loader();
+		$this->loader = new DISAI_Loader();
 
 	}
 
@@ -122,7 +120,7 @@ class Disable_AI {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Disable_AI_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new DISAI_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'registersettings' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
@@ -139,7 +137,7 @@ class Disable_AI {
 	}
 
 	private function utility_is_active( $className ) {
-		$className = str_replace( 'Disable_Ai_', '', $className );
+		$className = str_replace( 'DISAI_', '', $className );
 
 		$constant_name = strtoupper( 'disai_' . $className );
 		$utility = explode( '_', strtolower( $className ) );
@@ -172,7 +170,7 @@ class Disable_AI {
 						continue;
 					}
 
-					$className = str_replace( array( 'class-', '-', '.php'), array( '', ' ', ''), $file );
+					$className = 'DISAI_' . str_replace( array( 'class-', '-', '.php'), array( '', ' ', ''), $file );
 					$className = str_replace( ' ', '_', ucwords( $className ) );
 
 					if ( $this->utility_is_active( $className ) ) {
@@ -214,7 +212,7 @@ class Disable_AI {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     0.1
-	 * @return    Disable_AI_Loader    Orchestrates the hooks of the plugin.
+	 * @return    DISAI_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

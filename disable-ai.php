@@ -31,8 +31,8 @@ define( 'DISAI_BASE_NAME', plugin_basename( __FILE__ ) );
  * This action is documented in includes/class-disable-ai-activator.php
  */
 function activate_disable_ai() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai-activator.php';
-	Disable_AI_Activator::activate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-activator.php';
+	DISAI_Activator::activate();
 }
 
 /**
@@ -40,18 +40,18 @@ function activate_disable_ai() {
  * This action is documented in includes/class-disable-ai-deactivator.php
  */
 function deactivate_disable_ai() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai-deactivator.php';
-	Disable_AI_Deactivator::deactivate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-deactivator.php';
+	DISAI_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_disable_ai' );
 register_deactivation_hook( __FILE__, 'deactivate_disable_ai' );
 
 /**
- * The core plugin class that is used to define internationalization,
+ * The core plugin class that is used to load active utilities, define 
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-disableai.php';
 
 /**
  * Begins execution of the plugin.
@@ -64,7 +64,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai.php';
  */
 function run_disable_ai() {
 
-	$plugin = new Disable_AI();
+	$plugin = new DisableAI();
 	$plugin->run();
 
 }

@@ -15,7 +15,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Disable_AI_Deactivator {
+class DISAI_Deactivator {
 
 	/**
 	 * Short Description. (use period)

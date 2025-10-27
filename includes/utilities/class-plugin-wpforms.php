@@ -3,7 +3,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Disable_AI_Plugin_Wpforms {
+class DISAI_Plugin_Wpforms {
 
 	public function __construct() {
 	}

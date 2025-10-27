@@ -17,7 +17,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Disable_AI_Loader {
+class DISAI_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.
