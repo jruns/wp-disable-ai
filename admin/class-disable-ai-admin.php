@@ -58,6 +58,8 @@ class Disable_AI_Admin {
 			'disable-ai',
 			array( $this, 'render_options_page' )
 		);
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_options_style' ) );
 	}
 	
     public function registersettings() {
@@ -80,6 +82,14 @@ class Disable_AI_Admin {
 
 	public function render_options_page() {
 		require_once( plugin_dir_path( __FILE__ ) . 'partials/disable-ai-admin-options-display.php' );
+	}
+
+	public function enqueue_admin_options_style( $hook ) {
+		if ( 'settings_page_disable-ai' !== $hook ) {
+			return;
+		}
+		
+		wp_enqueue_style( 'disaai_admin_options', plugin_dir_url( __FILE__ ) . 'css/admin_options.css', array(), constant( 'DISABLE_AI_VERSION' ) );
 	}
 
 	public function add_plugin_action_links( array $links ) {
