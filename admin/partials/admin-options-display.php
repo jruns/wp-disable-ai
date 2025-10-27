@@ -89,32 +89,33 @@ function disai_output_admin_option( $args , $settings ) {
     $after_label_msg = '';
     if( defined( $utility_constant ) ) {
         $utility_value = constant( $utility_constant );
-        $after_label_msg = "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to enable/disable this setting here.</span></span>";
+        $after_label_msg = "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to configure this setting here.</span></span>";
     } else if ( array_key_exists( $type, $settings ) && array_key_exists( $name, $settings[$type] ) ) {
         $utility_value = absint( $settings[$type][$name] );
     }
 
-    $input_output = "<input type='checkbox' name='disai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
+    $input_output = "<input type='checkbox' name='disai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? " disabled='' title='Remove $utility_constant from wp-config.php in order to configure this setting here.'" : "" ) . "/>" . $description . "$after_label_msg";
 
     $allowed_html = array(
         'tr' => array(
-			'valign' => array(),
+			'valign' => true
         ),
         'th' => array(
-			'scope' => array(),
+			'scope' => true
         ),
         'td' => array(),
         'label' => array(),
 		'input' => array(
-			'type' => array(),
-			'id' => array(),
-			'name' => array(),
-			'value' => array(),
-			'checked' => array(),
-			'disabled' => array(),
+			'type' => true,
+			'id' => true,
+			'name' => true,
+			'value' => true,
+			'title' => true,
+			'checked' => true,
+			'disabled' => true
 		),
 		'span' => array(
-			'class' => array(),
+			'class' => true
 		),
         'p' => array(),
         'br' => array(),
