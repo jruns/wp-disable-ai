@@ -15,7 +15,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$settings = (array) get_option( 'disaai_settings', array() );
+$disaai_settings = (array) get_option( 'disaai_settings', array() );
 ?>
 
 <div class="wrap">
@@ -37,7 +37,7 @@ $args = array(
     'heading'           => 'All in One SEO',
     'description'       => 'Disable All in One SEO\'s AI features. Removes the Writing Assistant and AI-related buttons, menu items and tabs from the WordPress Editor.'
 );
-disaai_output_admin_option( $args, $settings );
+disaai_output_admin_option( $args, $disaai_settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -45,7 +45,7 @@ $args = array(
     'heading'           => 'Elementor',
     'description'       => 'Disable Elementor\'s AI features.'
 );
-disaai_output_admin_option( $args, $settings );
+disaai_output_admin_option( $args, $disaai_settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -53,7 +53,7 @@ $args = array(
     'heading'           => 'WPForms',
     'description'       => 'Disable WPForms\' AI features.'
 );
-disaai_output_admin_option( $args, $settings );
+disaai_output_admin_option( $args, $disaai_settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -61,7 +61,7 @@ $args = array(
     'heading'           => 'Yoast',
     'description'       => 'Disable Yoast\'s AI features.'
 );
-disaai_output_admin_option( $args, $settings );
+disaai_output_admin_option( $args, $disaai_settings );
 ?>
 </table>
 
