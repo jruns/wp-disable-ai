@@ -73,12 +73,17 @@ class Disable_AI_Admin {
 			'disable-ai',
 			'disable_ai_settings',
 			array(
-				'type'              => 'array',
-				'show_in_rest'      => false,
-				'default'           => $default_array,
+				'type'              	=> 'array',
+				'sanitize_callback'		=> array( $this, 'sanitize_array' ),
+				'show_in_rest'      	=> false,
+				'default'           	=> $default_array,
 			)
 		);
     }
+
+	public function sanitize_array( $array ) {
+		return map_deep( $array, 'sanitize_text_field' );
+	}
 
 	public function render_options_page() {
 		require_once( plugin_dir_path( __FILE__ ) . 'partials/disable-ai-admin-options-display.php' );
