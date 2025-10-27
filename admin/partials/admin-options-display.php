@@ -5,81 +5,18 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       https://jruns.github.io/
+ * @link       https://github.com/jruns/wp-disable-ai
  * @since      0.1
  *
  * @package    Disable_AI
  * @subpackage Disable_AI/admin/partials
  */
 
-$settings = (array) get_option( 'disable_ai_settings', array() );
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+$disai_settings = (array) get_option( 'disai_settings', array() );
 ?>
-<style>
-    .itemTitle {
-        margin-bottom: 20px;
-    }
-
-    .form-table th, .form-table td {
-        padding: 0 0 10px 0;
-    }
-    @media screen and (min-width: 783px) {
-        .form-table th {
-            width: 250px;
-        }
-    }
-
-    .child-table {
-        width: 100%;
-        margin-top: 10px;
-        margin-left: 40px;
-    }
-    .form-table .child-table th {
-        padding: 0;
-    }
-    .form-table .child-table td {
-        padding: 5px 0 10px;
-    }
-
-    .plugin_intro {
-        font-size: 1.4em;
-        margin-bottom: 2em;
-        font-weight: 600;
-    }
-
-    .utility_notice {
-        font-size: 0.9em;
-        color: #666;
-    }
-
-    .dashicons-warning {
-        line-height: 1.4;
-        font-size: 14px;
-        color: #F5B027;
-        margin-left:4px;
-    }
-
-    .tooltip {
-        position: relative;
-        display: inline-block;	
-    }
-    .tooltip .tooltip-text {
-        visibility: hidden;
-        top: 20px;
-        right: 0;
-        min-width:280px;
-        background-color: #E4E4E4;
-        border: 2px solid #3D3D3D;
-        border-radius: 5px;
-        font-size: 0.9em;
-        color: rgb(60, 67, 74);
-        padding: 4px;
-        position: absolute;
-        z-index: 1;
-    }
-    .tooltip:hover .tooltip-text {
-        visibility: visible;
-    }
-</style>
 
 <div class="wrap">
 <h1><?php esc_html_e( 'Disable AI', 'disable-ai' ); ?></h1>
@@ -100,7 +37,7 @@ $args = array(
     'heading'           => 'All in One SEO',
     'description'       => 'Disable All in One SEO\'s AI features. Removes the Writing Assistant and AI-related buttons, menu items and tabs from the WordPress Editor.'
 );
-output_admin_option( $args, $settings );
+disai_output_admin_option( $args, $disai_settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -108,7 +45,7 @@ $args = array(
     'heading'           => 'Elementor',
     'description'       => 'Disable Elementor\'s AI features.'
 );
-output_admin_option( $args, $settings );
+disai_output_admin_option( $args, $disai_settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -116,7 +53,7 @@ $args = array(
     'heading'           => 'WPForms',
     'description'       => 'Disable WPForms\' AI features.'
 );
-output_admin_option( $args, $settings );
+disai_output_admin_option( $args, $disai_settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -124,7 +61,7 @@ $args = array(
     'heading'           => 'Yoast',
     'description'       => 'Disable Yoast\'s AI features.'
 );
-output_admin_option( $args, $settings );
+disai_output_admin_option( $args, $disai_settings );
 ?>
 </table>
 
@@ -140,44 +77,45 @@ output_admin_option( $args, $settings );
 
 <?php
 
-function output_admin_option( $args , $settings ) {
+function disai_output_admin_option( $args , $settings ) {
     $type = $args['type'] ?? '';
     $name = $args['name'] ?? '';
     $heading = $args['heading'] ?? '';
     $description = $args['description'] ?? '';
 
-    $utility_constant = strtoupper( 'disable_ai_' . $type . '_' . $name );
+    $utility_constant = strtoupper( 'disai_' . $type . '_' . $name );
     $utility_value = null;
     $placeholder = '';
     $after_label_msg = '';
     if( defined( $utility_constant ) ) {
         $utility_value = constant( $utility_constant );
-        $after_label_msg = "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to enable/disable this setting here.</span></span>";
+        $after_label_msg = "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to configure this setting here.</span></span>";
     } else if ( array_key_exists( $type, $settings ) && array_key_exists( $name, $settings[$type] ) ) {
         $utility_value = absint( $settings[$type][$name] );
     }
 
-    $input_output = "<input type='checkbox' name='disable_ai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
+    $input_output = "<input type='checkbox' name='disai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? " disabled='' title='Remove $utility_constant from wp-config.php in order to configure this setting here.'" : "" ) . "/>" . $description . "$after_label_msg";
 
     $allowed_html = array(
         'tr' => array(
-			'valign' => array(),
+			'valign' => true
         ),
         'th' => array(
-			'scope' => array(),
+			'scope' => true
         ),
         'td' => array(),
         'label' => array(),
 		'input' => array(
-			'type' => array(),
-			'id' => array(),
-			'name' => array(),
-			'value' => array(),
-			'checked' => array(),
-			'disabled' => array(),
+			'type' => true,
+			'id' => true,
+			'name' => true,
+			'value' => true,
+			'title' => true,
+			'checked' => true,
+			'disabled' => true
 		),
 		'span' => array(
-			'class' => array(),
+			'class' => true
 		),
         'p' => array(),
         'br' => array(),

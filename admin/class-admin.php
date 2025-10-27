@@ -3,21 +3,17 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://jruns.github.io/
+ * @link       https://github.com/jruns/wp-disable-ai
  * @since      0.1
  *
  * @package    Disable_AI
  * @subpackage Disable_AI/admin
  */
 
-/**
- * The admin-specific functionality of the plugin.
- *
- * @package    Disable_AI
- * @subpackage Disable_AI/admin
- * @author     Jason Schramm <jason.runs@proton.me>
- */
-class Disable_AI_Admin {
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+class DISAI_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -58,6 +54,8 @@ class Disable_AI_Admin {
 			'disable-ai',
 			array( $this, 'render_options_page' )
 		);
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_options_style' ) );
 	}
 	
     public function registersettings() {
@@ -69,17 +67,30 @@ class Disable_AI_Admin {
 
         register_setting(
 			'disable-ai',
-			'disable_ai_settings',
+			'disai_settings',
 			array(
-				'type'              => 'array',
-				'show_in_rest'      => false,
-				'default'           => $default_array,
+				'type'              	=> 'array',
+				'sanitize_callback'		=> array( $this, 'sanitize_array' ),
+				'show_in_rest'      	=> false,
+				'default'           	=> $default_array,
 			)
 		);
     }
 
+	public function sanitize_array( $array ) {
+		return map_deep( $array, 'sanitize_text_field' );
+	}
+
 	public function render_options_page() {
-		require_once( plugin_dir_path( __FILE__ ) . 'partials/disable-ai-admin-options-display.php' );
+		require_once( plugin_dir_path( __FILE__ ) . 'partials/admin-options-display.php' );
+	}
+
+	public function enqueue_admin_options_style( $hook ) {
+		if ( 'settings_page_disable-ai' !== $hook ) {
+			return;
+		}
+
+		wp_enqueue_style( 'disai-admin-options', plugin_dir_url( __FILE__ ) . 'css/admin_options.css', array(), constant( 'DISAI_VERSION' ) );
 	}
 
 	public function add_plugin_action_links( array $links ) {

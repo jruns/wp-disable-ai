@@ -2,15 +2,15 @@
 
 /**
  *
- * @link              https://jruns.github.io/
- * @since             0.1
- * @package           Disable_AI
+ * @link              https://github.com/jruns
+ * @since             0.1.0
+ * @package           DisableAI
  *
  * @wordpress-plugin
  * Plugin Name:       Disable AI
  * Plugin URI:        https://github.com/jruns/wp-disable-ai
  * Description:       Turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.
- * Version:           0.2
+ * Version:           0.3
  * Author:            jruns
  * Author URI:        https://github.com/jruns
  * License:           GPL-2.0+
@@ -20,21 +20,19 @@
  * Requires PHP:      7.4
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'DISABLE_AI_VERSION', '0.2' );
-define( 'DISABLE_AI_BASE_NAME', plugin_basename( __FILE__ ) );
+define( 'DISAI_VERSION', '0.3' );
+define( 'DISAI_BASE_NAME', plugin_basename( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-disable-ai-activator.php
  */
 function activate_disable_ai() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai-activator.php';
-	Disable_AI_Activator::activate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-activator.php';
+	DISAI_Activator::activate();
 }
 
 /**
@@ -42,18 +40,18 @@ function activate_disable_ai() {
  * This action is documented in includes/class-disable-ai-deactivator.php
  */
 function deactivate_disable_ai() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai-deactivator.php';
-	Disable_AI_Deactivator::deactivate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-deactivator.php';
+	DISAI_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_disable_ai' );
 register_deactivation_hook( __FILE__, 'deactivate_disable_ai' );
 
 /**
- * The core plugin class that is used to define internationalization,
+ * The core plugin class that is used to load active utilities, define 
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-disableai.php';
 
 /**
  * Begins execution of the plugin.
@@ -62,11 +60,11 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-disable-ai.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    0.1
+ * @since    0.1.0
  */
 function run_disable_ai() {
 
-	$plugin = new Disable_AI();
+	$plugin = new DisableAI();
 	$plugin->run();
 
 }

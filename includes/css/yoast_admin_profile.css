@@ -1,0 +1,3 @@
+.yoast.yoast-settings:has( #ai-generator-consent ) {
+    display: none;
+}

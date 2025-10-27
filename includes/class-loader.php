@@ -2,31 +2,27 @@
 
 /**
  * Register all actions and filters for the plugin
- *
- * @link       https://jruns.github.io/
- * @since      0.1
- *
- * @package    Disable_AI
- * @subpackage Disable_AI/includes
- */
-
-/**
- * Register all actions and filters for the plugin.
- *
+ * 
  * Maintain a list of all hooks that are registered throughout
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Disable_AI
- * @subpackage Disable_AI/includes
- * @author     Jason Schramm <jason.runs@proton.me>
+ * @link       https://github.com/jruns/wp-disable-ai
+ * @since      0.1.0
+ *
+ * @package    DisableAI
+ * @subpackage DisableAI/includes
  */
-class Disable_AI_Loader {
+
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+class DISAI_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @access   protected
 	 * @var      array    $actions    The actions registered with WordPress to fire when the plugin loads.
 	 */
@@ -35,7 +31,7 @@ class Disable_AI_Loader {
 	/**
 	 * The array of filters registered with WordPress.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @access   protected
 	 * @var      array    $filters    The filters registered with WordPress to fire when the plugin loads.
 	 */
@@ -44,7 +40,7 @@ class Disable_AI_Loader {
 	/**
 	 * Initialize the collections used to maintain the actions and filters.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 */
 	public function __construct() {
 
@@ -56,7 +52,7 @@ class Disable_AI_Loader {
 	/**
 	 * Add a new action to the collection to be registered with WordPress.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @param    string               $hook             The name of the WordPress action that is being registered.
 	 * @param    object               $component        A reference to the instance of the object on which the action is defined.
 	 * @param    string               $callback         The name of the function definition on the $component.
@@ -70,7 +66,7 @@ class Disable_AI_Loader {
 	/**
 	 * Add a new filter to the collection to be registered with WordPress.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @param    string               $hook             The name of the WordPress filter that is being registered.
 	 * @param    object               $component        A reference to the instance of the object on which the filter is defined.
 	 * @param    string               $callback         The name of the function definition on the $component.
@@ -85,7 +81,7 @@ class Disable_AI_Loader {
 	 * A utility function that is used to register the actions and hooks into a single
 	 * collection.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 * @access   private
 	 * @param    array                $hooks            The collection of hooks that is being registered (that is, actions or filters).
 	 * @param    string               $hook             The name of the WordPress filter that is being registered.
@@ -112,7 +108,7 @@ class Disable_AI_Loader {
 	/**
 	 * Register the filters and actions with WordPress.
 	 *
-	 * @since    0.1
+	 * @since    0.1.0
 	 */
 	public function run() {
 
