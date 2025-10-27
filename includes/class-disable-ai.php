@@ -16,20 +16,9 @@
  * @subpackage Disable_AI/includes
  */
 
-/**
- * The core plugin class.
- *
- * This is used to define internationalization, admin-specific hooks, and
- * public-facing site hooks.
- *
- * Also maintains the unique identifier of this plugin as well as the current
- * version of the plugin.
- *
- * @since      0.1
- * @package    Disable_AI
- * @subpackage Disable_AI/includes
- * @author     Jason Schramm <jason.runs@proton.me>
- */
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Disable_AI {
 
 	/**

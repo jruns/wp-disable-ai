@@ -12,6 +12,9 @@
  * @subpackage Disable_AI/admin/partials
  */
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 $settings = (array) get_option( 'disaai_settings', array() );
 ?>
 

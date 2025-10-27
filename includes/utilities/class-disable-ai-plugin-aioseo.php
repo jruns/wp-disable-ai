@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Disable_AI_Plugin_Aioseo {
 
 	public function __construct() {

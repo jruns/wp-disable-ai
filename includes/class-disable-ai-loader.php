@@ -13,6 +13,10 @@
  * @package    Disable_AI
  * @subpackage Disable_AI/includes
  */
+
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class Disable_AI_Loader {
 
 	/**

@@ -20,10 +20,8 @@
  * Requires PHP:      7.4
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'DISABLE_AI_VERSION', '0.3' );
 define( 'DISABLE_AI_BASE_NAME', plugin_basename( __FILE__ ) );
