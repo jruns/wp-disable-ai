@@ -15,7 +15,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$disaai_settings = (array) get_option( 'disaai_settings', array() );
+$disai_settings = (array) get_option( 'disai_settings', array() );
 ?>
 
 <div class="wrap">
@@ -37,7 +37,7 @@ $args = array(
     'heading'           => 'All in One SEO',
     'description'       => 'Disable All in One SEO\'s AI features. Removes the Writing Assistant and AI-related buttons, menu items and tabs from the WordPress Editor.'
 );
-disaai_output_admin_option( $args, $disaai_settings );
+disai_output_admin_option( $args, $disai_settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -45,7 +45,7 @@ $args = array(
     'heading'           => 'Elementor',
     'description'       => 'Disable Elementor\'s AI features.'
 );
-disaai_output_admin_option( $args, $disaai_settings );
+disai_output_admin_option( $args, $disai_settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -53,7 +53,7 @@ $args = array(
     'heading'           => 'WPForms',
     'description'       => 'Disable WPForms\' AI features.'
 );
-disaai_output_admin_option( $args, $disaai_settings );
+disai_output_admin_option( $args, $disai_settings );
 
 $args = array(
     'type'              => 'plugin',
@@ -61,7 +61,7 @@ $args = array(
     'heading'           => 'Yoast',
     'description'       => 'Disable Yoast\'s AI features.'
 );
-disaai_output_admin_option( $args, $disaai_settings );
+disai_output_admin_option( $args, $disai_settings );
 ?>
 </table>
 
@@ -77,13 +77,13 @@ disaai_output_admin_option( $args, $disaai_settings );
 
 <?php
 
-function disaai_output_admin_option( $args , $settings ) {
+function disai_output_admin_option( $args , $settings ) {
     $type = $args['type'] ?? '';
     $name = $args['name'] ?? '';
     $heading = $args['heading'] ?? '';
     $description = $args['description'] ?? '';
 
-    $utility_constant = strtoupper( 'disaai_' . $type . '_' . $name );
+    $utility_constant = strtoupper( 'disai_' . $type . '_' . $name );
     $utility_value = null;
     $placeholder = '';
     $after_label_msg = '';
@@ -94,7 +94,7 @@ function disaai_output_admin_option( $args , $settings ) {
         $utility_value = absint( $settings[$type][$name] );
     }
 
-    $input_output = "<input type='checkbox' name='disaai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
+    $input_output = "<input type='checkbox' name='disai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? ' disabled' : '' ) . "/>" . $description . "$after_label_msg";
 
     $allowed_html = array(
         'tr' => array(

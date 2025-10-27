@@ -13,7 +13,7 @@ class Disable_AI_Plugin_Aioseo {
 	}
 
 	public function hide_ai_editor_elements() {
-		wp_enqueue_style( 'disaai-aioseo-editor', plugin_dir_url( __DIR__ ) . 'css/aioseo_editor.css', array(), constant( 'DISAI_VERSION' ) );
+		wp_enqueue_style( 'disai-aioseo-editor', plugin_dir_url( __DIR__ ) . 'css/aioseo_editor.css', array(), constant( 'DISAI_VERSION' ) );
 	}
 
 	/**

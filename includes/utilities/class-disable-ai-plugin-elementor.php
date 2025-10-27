@@ -14,7 +14,7 @@ class Disable_AI_Plugin_Elementor {
 			return;
 		}
 
-		wp_enqueue_style( 'disaai-elementor-admin-profile', plugin_dir_url( __DIR__ ) . 'css/elementor_admin_profile.css', array(), constant( 'DISAI_VERSION' ) );
+		wp_enqueue_style( 'disai-elementor-admin-profile', plugin_dir_url( __DIR__ ) . 'css/elementor_admin_profile.css', array(), constant( 'DISAI_VERSION' ) );
 	}
 
 	/**

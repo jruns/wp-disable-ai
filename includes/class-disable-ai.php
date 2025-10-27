@@ -135,13 +135,13 @@ class Disable_AI {
 			'theme' => array(),
 			'core' => array()
 		);
-		$this->settings = wp_parse_args( get_option( 'disaai_settings' ), $defaults );
+		$this->settings = wp_parse_args( get_option( 'disai_settings' ), $defaults );
 	}
 
 	private function utility_is_active( $className ) {
 		$className = str_replace( 'Disable_Ai_', '', $className );
 
-		$constant_name = strtoupper( 'disaai_' . $className );
+		$constant_name = strtoupper( 'disai_' . $className );
 		$utility = explode( '_', strtolower( $className ) );
 
 		$utility_type = $utility[0] ?? '';
