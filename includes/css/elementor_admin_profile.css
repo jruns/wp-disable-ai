@@ -1,0 +1,4 @@
+tr:has( + tr #elementor_enable_ai),
+tr:has( #elementor_enable_ai ) {
+    display: none;
+}

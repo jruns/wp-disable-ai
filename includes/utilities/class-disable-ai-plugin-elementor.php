@@ -6,15 +6,12 @@ class Disable_AI_Plugin_Elementor {
 	}
 
 	public function hide_ai_user_preferences() {
-		global $pagenow;
-		if ( 'profile.php' === $pagenow ) {
-			echo '<style>
-				tr:has( + tr #elementor_enable_ai),
-				tr:has( #elementor_enable_ai ) {
-					display: none;
-				}
-			</style>';
+		$screen = get_current_screen();
+		if ( ! $screen || 'profile' !== $screen->id ) {
+			return;
 		}
+
+		wp_enqueue_style( 'disaai-elementor-admin-profile', plugin_dir_url( __DIR__ ) . 'css/elementor_admin_profile.css', array(), constant( 'DISABLE_AI_VERSION' ) );
 	}
 
 	/**
@@ -24,6 +21,6 @@ class Disable_AI_Plugin_Elementor {
 	 */
 	public function run() {
 		add_filter( 'get_user_option_elementor_enable_ai', '__return_zero' );
-		add_action( 'admin_head', array( $this, 'hide_ai_user_preferences' ) );
+		add_action( 'admin_print_styles', array( $this, 'hide_ai_user_preferences' ) );
 	}
 }
