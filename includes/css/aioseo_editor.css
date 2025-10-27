@@ -1,0 +1,7 @@
+.editor-header .components-button:has(#aioseo-writing-assistant-sidebar-button),
+.editor-post-featured-image__container .aioseo-ai-image-generator-btn-featured-image,
+.aioseo-app.aioseo-post-settings .aioseo-sidepanel a.aioseo-sidepanel-button:has(.aioseo-ai-content),
+.aioseo-app .aioseo-tabs .var-tabs .var-tab:has(.aioseo-ai-content),
+.aioseo-append-button .aioseo-ai-generator {
+    display: none;
+}
