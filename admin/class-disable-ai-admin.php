@@ -88,8 +88,8 @@ class Disable_AI_Admin {
 		if ( 'settings_page_disable-ai' !== $hook ) {
 			return;
 		}
-		
-		wp_enqueue_style( 'disaai_admin_options', plugin_dir_url( __FILE__ ) . 'css/admin_options.css', array(), constant( 'DISABLE_AI_VERSION' ) );
+
+		wp_enqueue_style( 'disaai-admin-options', plugin_dir_url( __FILE__ ) . 'css/admin_options.css', array(), constant( 'DISABLE_AI_VERSION' ) );
 	}
 
 	public function add_plugin_action_links( array $links ) {

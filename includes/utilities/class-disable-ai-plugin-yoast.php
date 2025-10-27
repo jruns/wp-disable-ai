@@ -19,14 +19,12 @@ class Disable_AI_Plugin_Yoast {
 	}
 
 	public function hide_ai_user_preferences() {
-		global $pagenow;
-		if ( 'profile.php' === $pagenow ) {
-			echo '<style>
-				.yoast.yoast-settings:has( #ai-generator-consent ) {
-					display: none;
-				}
-			</style>';
+		$screen = get_current_screen();
+		if ( ! $screen || 'profile' !== $screen->id ) {
+			return;
 		}
+
+		wp_enqueue_style( 'disaai-yoast-admin-profile', plugin_dir_url( __DIR__ ) . 'css/yoast_admin_profile.css', array(), constant( 'DISABLE_AI_VERSION' ) );
 	}
 
 	public function hide_ai_upsell_modals( $introductions ) {
@@ -45,7 +43,7 @@ class Disable_AI_Plugin_Yoast {
 	public function run() {
 		add_filter( 'option_wpseo', array( $this, 'disable_ai_generator' ), 10, 1 );
 		add_filter( 'get_user_metadata', array( $this, 'revoke_ai_consent' ), 10, 5 );
-		add_action( 'admin_head', array( $this, 'hide_ai_user_preferences' ) );
+		add_action( 'admin_print_styles', array( $this, 'hide_ai_user_preferences' ) );
 		add_filter( 'wpseo_introductions', array( $this, 'hide_ai_upsell_modals' ), 15, 1 );
 	}
 }
