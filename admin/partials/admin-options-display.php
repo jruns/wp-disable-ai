@@ -66,8 +66,8 @@ disai_output_admin_option( $args, $disai_settings );
 $args = array(
     'type'              => 'plugin',
     'name'              => 'yoast',
-    'heading'           => 'Yoast',
-    'description'       => 'Disable Yoast\'s AI features.'
+    'heading'           => 'Yoast SEO',
+    'description'       => 'Disable Yoast SEO\'s AI features.'
 );
 disai_output_admin_option( $args, $disai_settings );
 ?>
