@@ -71,7 +71,7 @@ class DisableAI {
 		if ( defined( 'DISAI_VERSION' ) ) {
 			$this->version = DISAI_VERSION;
 		} else {
-			$this->version = '0.3.0';
+			$this->version = '0.4.0';
 		}
 		$this->plugin_name = 'disable-ai';
 
@@ -180,7 +180,7 @@ class DisableAI {
 						add_action( 'after_setup_theme', function() use ( $utilities_dir, $file, $className ) {
 							$utility = new $className;
 							$utility->run();
-						} );
+						}, 1 );
 					}
 				}
 				closedir( $dh );
