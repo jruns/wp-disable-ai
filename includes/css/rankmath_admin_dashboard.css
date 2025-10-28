@@ -1,0 +1,3 @@
+.rank-math-ui.module-listing .rank-math-box:has(.rm-icon-content-ai) {
+    display: none;
+}

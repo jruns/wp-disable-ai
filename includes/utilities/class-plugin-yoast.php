@@ -20,7 +20,7 @@ class DISAI_Plugin_Yoast {
 	public function __construct() {
 	}
 
-	public function disable_ai_generator() {
+	public function disable_ai_generator( $options ) {
 		$options['enable_ai_generator'] = false;
 
     	return $options;
