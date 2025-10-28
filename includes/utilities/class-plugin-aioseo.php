@@ -25,6 +25,17 @@ class DISAI_Plugin_Aioseo {
 	}
 
 	public function hide_ai_editor_elements() {
+		$allowed_screens = array( 'all-in-one-seo_page_aioseo-settings', 'post', 'page' );
+		$screen = get_current_screen();
+
+		if ( ! $screen || ( ! in_array( $screen->id, $allowed_screens ) && ! in_array( $screen->base, $allowed_screens ) ) ) {
+			return;
+		}
+
+		$this->load_editor_styles();
+	}
+
+	public function load_editor_styles() {
 		wp_enqueue_style( 'disai-aioseo-editor', plugin_dir_url( __DIR__ ) . 'css/aioseo_editor.css', array(), constant( 'DISAI_VERSION' ) );
 	}
 
@@ -35,7 +46,7 @@ class DISAI_Plugin_Aioseo {
 	 */
 	public function run() {
 		add_action( 'add_meta_boxes', array( $this, 'remove_writing_assistant_meta_box' ), 100, 2 );
-		add_action( 'admin_head', array( $this, 'hide_ai_editor_elements' ), 15 );
-		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'hide_ai_editor_elements' ) );
+		add_action( 'admin_print_styles', array( $this, 'hide_ai_editor_elements' ) );
+		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'load_editor_styles' ) );
 	}
 }
