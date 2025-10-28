@@ -40,8 +40,9 @@ Because AI can have negative impacts on people and the planet. And because AI sh
 == Changelog ==
 
 = 0.4.0 =
-* Add support for Rank Math SEO. Disable Content AI module and features, and hide the module from the Rank Math admin Dashboard.
+* Add support for Rank Math SEO - Disable Content AI module and features, and hide the module from the Rank Math admin Dashboard.
 * Change: Add AIOSEO editor styles to fewer admin pages, and disable the AI features on custom post type edit screens.
+* Change: Load utilities earlier in the WP sequence so Rank Math SEO's options can be overridden.
 * Fix: Correctly update Yoast SEO settings when disabling AI.
 
 = 0.3.0 =
