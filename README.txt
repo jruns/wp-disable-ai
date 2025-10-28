@@ -3,7 +3,7 @@ Contributors: jruns
 Tags: ai, artificial intelligence, sustainability
 Requires at least: 6.0
 Tested up to: 6.8
-Stable tag: 0.3
+Stable tag: 0.3.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -38,15 +38,15 @@ Because AI can have negative impacts on people and the planet. And because AI sh
 
 == Changelog ==
 
-= 0.3 =
+= 0.3.0 =
 * Rename plugin option and add sanitization.
 * Update PHP file structure and comments.
 * Move css to enqueued files.
 * Hide AIOSEO AI tab in AIOSEO's General Settings, and load style in Elementor editor too.
 
-= 0.2 =
+= 0.2.0 =
 * Add support for All in One SEO. Hide AI menu items and tabs, hide AI buttons, and remove the Writing Assistant metabox in the post editor.
 * Remove WP from more instances of the plugin's name to comply with WordPress plugin repository rules.
 
-= 0.1 =
+= 0.1.0 =
 * Initial release with support for disabling AI in Elementor, WPForms Lite, and Yoast SEO.
