@@ -49,6 +49,14 @@ disai_output_admin_option( $args, $disai_settings );
 
 $args = array(
     'type'              => 'plugin',
+    'name'              => 'rankmath',
+    'heading'           => 'Rank Math SEO',
+    'description'       => 'Disable Rank Math SEO\'s AI features.'
+);
+disai_output_admin_option( $args, $disai_settings );
+
+$args = array(
+    'type'              => 'plugin',
     'name'              => 'wpforms',
     'heading'           => 'WPForms',
     'description'       => 'Disable WPForms\' AI features.'

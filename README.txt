@@ -3,7 +3,7 @@ Contributors: jruns
 Tags: ai, artificial intelligence, sustainability
 Requires at least: 6.0
 Tested up to: 6.8
-Stable tag: 0.3.0
+Stable tag: 0.4.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -18,6 +18,7 @@ This plugin currently supports disabling AI features and notifications in:
 
 * All in One SEO
 * Elementor
+* Rank Math SEO
 * WPForms Lite
 * Yoast SEO
 
@@ -37,6 +38,9 @@ From your WordPress dashboard
 Because AI can have negative impacts on people and the planet. And because AI should not be forced on anyone.
 
 == Changelog ==
+
+= 0.4.0 =
+* Add support for Rank Math SEO. Disable Content AI module and features, and hide the module from the Rank Math admin Dashboard.
 
 = 0.3.0 =
 * Rename plugin option and add sanitization.
