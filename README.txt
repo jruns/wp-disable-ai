@@ -41,6 +41,7 @@ Because AI can have negative impacts on people and the planet. And because AI sh
 
 = 0.4.0 =
 * Add support for Rank Math SEO. Disable Content AI module and features, and hide the module from the Rank Math admin Dashboard.
+* Fix: Correctly update Yoast SEO settings when disabling AI.
 
 = 0.3.0 =
 * Rename plugin option and add sanitization.
