@@ -31,6 +31,10 @@ From your WordPress dashboard
 3. Install and Activate Disable AI from your Plugins page
 4. Visit Settings > Disable AI to configure
 
+== Screenshots ==
+
+1. Admin Settings Page
+
 == Frequently Asked Questions ==
 
 = Why is this free? =
