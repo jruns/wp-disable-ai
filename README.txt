@@ -51,6 +51,7 @@ If you also want to make a few less database queries and only configure plugin s
 
 = 0.4.1 =
 * New: Support wp-config.php constant DISAI_ENABLE_WPCONFIG_MODE for enabling/disabling plugin settings from wp-config.php.
+* Updated: Convert wp-config.php string constants to booleans so 'false' evaluates to false.
 * Updated: Compatibility with WordPress 6.9.
 
 = 0.4.0 =
