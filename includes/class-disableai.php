@@ -160,7 +160,7 @@ class DisableAI {
 		$utility_name = $utility[1] ?? '';
 
 		if( defined( $constant_name ) ) {
-			if ( constant( $constant_name ) ) {
+			if ( rest_sanitize_boolean( constant( $constant_name ) ) ) {
 				return true;
 			}
 		} else if ( ! $this->wpconfig_mode ) {
