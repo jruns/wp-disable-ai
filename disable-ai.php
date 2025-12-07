@@ -1,9 +1,6 @@
 <?php
 
 /**
- *
- * @link              https://github.com/jruns
- * @since             0.1.0
  * @package           DisableAI
  *
  * @wordpress-plugin
