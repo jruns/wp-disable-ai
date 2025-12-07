@@ -59,6 +59,15 @@ class DisableAI {
 	protected $settings;
 
 	/**
+	 * If we should only check wp-config.php constants for active plugins.
+	 *
+	 * @since    0.4.1
+	 * @access   protected
+	 * @var      array    $wpconfig_mode    The wp-config mode setting.
+	 */
+	protected $wpconfig_mode;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -134,6 +143,11 @@ class DisableAI {
 			'core' => array()
 		);
 		$this->settings = wp_parse_args( get_option( 'disai_settings' ), $defaults );
+
+		$this->wpconfig_mode = false;
+		if( defined( 'DISAI_ENABLE_WPCONFIG_MODE' ) && rest_sanitize_boolean( constant( 'DISAI_ENABLE_WPCONFIG_MODE' ) ) ) {
+			$this->wpconfig_mode = true;
+		}
 	}
 
 	private function utility_is_active( $className ) {
@@ -149,8 +163,10 @@ class DisableAI {
 			if ( constant( $constant_name ) ) {
 				return true;
 			}
-		} else if ( array_key_exists( $utility_name, $this->settings[$utility_type] ) && $this->settings[$utility_type][$utility_name] ) {
-			return true;
+		} else if ( ! $this->wpconfig_mode ) {
+			if ( array_key_exists( $utility_name, $this->settings[$utility_type] ) && $this->settings[$utility_type][$utility_name] ) {
+				return true;
+			}
 		}
 
 		return false;

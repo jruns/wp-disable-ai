@@ -41,9 +41,14 @@ From your WordPress dashboard
 
 Because AI can have negative impacts on people and the planet. And because AI should not be forced on anyone.
 
+= How can I configure plugin settings from my wp-config.php file? =
+
+If you want the plugin to make a few less database queries you set the DISAI_ENABLE_WPCONFIG_MODE constant to true in your wp-config.php file. You can then disable AI in specific plugins by setting their related constants to true in wp-config.php. Ex: DISAI_PLUGIN_AIOSEO, DISAI_PLUGIN_ELEMENTOR, DISAI_PLUGIN_RANKMATH
+
 == Changelog ==
 
 = 0.4.1 =
+* New: Support wp-config.php constant DISAI_ENABLE_WPCONFIG_MODE for enabling/disabling plugin settings from wp-config.php.
 * Updated: Compatibility with WordPress 6.9.
 
 = 0.4.0 =

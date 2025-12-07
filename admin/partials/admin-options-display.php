@@ -15,6 +15,13 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+
+$disai_wpconfig_mode = false;
+if( defined( 'DISAI_ENABLE_WPCONFIG_MODE' ) ) {
+    if ( constant( 'DISAI_ENABLE_WPCONFIG_MODE' ) ) {
+        $disai_wpconfig_mode = true;
+    }
+}
 $disai_settings = (array) get_option( 'disai_settings', array() );
 ?>
 
@@ -37,7 +44,7 @@ $args = array(
     'heading'           => 'All in One SEO',
     'description'       => 'Disable All in One SEO\'s AI features. Removes the Writing Assistant and AI-related buttons, menu items and tabs from the WordPress Editor.'
 );
-disai_output_admin_option( $args, $disai_settings );
+disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
 
 $args = array(
     'type'              => 'plugin',
@@ -45,7 +52,7 @@ $args = array(
     'heading'           => 'Elementor',
     'description'       => 'Disable Elementor\'s AI features.'
 );
-disai_output_admin_option( $args, $disai_settings );
+disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
 
 $args = array(
     'type'              => 'plugin',
@@ -53,7 +60,7 @@ $args = array(
     'heading'           => 'Rank Math SEO',
     'description'       => 'Disable Rank Math SEO\'s AI features.'
 );
-disai_output_admin_option( $args, $disai_settings );
+disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
 
 $args = array(
     'type'              => 'plugin',
@@ -61,7 +68,7 @@ $args = array(
     'heading'           => 'WPForms',
     'description'       => 'Disable WPForms\' AI features.'
 );
-disai_output_admin_option( $args, $disai_settings );
+disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
 
 $args = array(
     'type'              => 'plugin',
@@ -69,7 +76,7 @@ $args = array(
     'heading'           => 'Yoast SEO',
     'description'       => 'Disable Yoast SEO\'s AI features.'
 );
-disai_output_admin_option( $args, $disai_settings );
+disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
 ?>
 </table>
 
@@ -85,7 +92,7 @@ disai_output_admin_option( $args, $disai_settings );
 
 <?php
 
-function disai_output_admin_option( $args , $settings ) {
+function disai_output_admin_option( $args , $settings, $wpconfig_mode = false ) {
     $type = $args['type'] ?? '';
     $name = $args['name'] ?? '';
     $heading = $args['heading'] ?? '';
@@ -95,14 +102,20 @@ function disai_output_admin_option( $args , $settings ) {
     $utility_value = null;
     $placeholder = '';
     $after_label_msg = '';
+
     if( defined( $utility_constant ) ) {
         $utility_value = constant( $utility_constant );
-        $after_label_msg = "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>Remove $utility_constant from wp-config.php in order to configure this setting here.</span></span>";
-    } else if ( array_key_exists( $type, $settings ) && array_key_exists( $name, $settings[$type] ) ) {
+        $after_label_msg = "<span class='tooltip'><span class='dashicons dashicons-warning'></span><span class='tooltip-text'>This setting is currently configured in your wp-config.php file and can only be enabled or disabled there.<br/><br/>" . ( $wpconfig_mode ? "WP-Config Mode is enabled as well. Remove DISAI_ENABLE_WPCONFIG_MODE and $utility_constant from wp-config.php in order to enable/disable this setting here." : "Remove $utility_constant from wp-config.php in order to enable/disable this setting here." ) . "</span></span>";
+    } else if ( ! $wpconfig_mode && array_key_exists( $type, $settings ) && array_key_exists( $name, $settings[$type] ) ) {
         $utility_value = absint( $settings[$type][$name] );
     }
 
-    $input_output = "<input type='checkbox' name='disai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( defined( $utility_constant ) ? " disabled='' title='Remove $utility_constant from wp-config.php in order to configure this setting here.'" : "" ) . "/>" . $description . "$after_label_msg";
+    $disabled_title = "Remove $utility_constant from wp-config.php in order to configure this setting here.";
+    if ( $wpconfig_mode ) {
+        $disabled_title = "This setting is managed by the $utility_constant constant in wp-config.php because WP-Config Mode is enabled. Remove DISAI_ENABLE_WPCONFIG_MODE " . ( defined( $utility_constant ) ? "and $utility_constant " : "" ) . "from wp-config.php in order to configure this setting here.";
+    }
+
+    $input_output = "<input type='checkbox' name='disai_settings[$type][$name]' value='1' " . ( $utility_value ? "checked='checked'" : '' ) . ( $wpconfig_mode || defined( $utility_constant ) ? " disabled='' title='$disabled_title'" : "" ) . "/>" . $description . "$after_label_msg";
 
     $allowed_html = array(
         'tr' => array(
