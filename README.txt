@@ -43,21 +43,24 @@ Because AI can have negative impacts on people and the planet. And because AI sh
 
 == Changelog ==
 
+= 0.4.1 =
+* Updated: Compatibility with WordPress 6.9.
+
 = 0.4.0 =
-* Add support for Rank Math SEO - Disable Content AI module and features, and hide the module from the Rank Math admin Dashboard.
-* Change: Add AIOSEO editor styles to fewer admin pages, and disable the AI features on custom post type edit screens.
-* Change: Load utilities earlier in the WP sequence so Rank Math SEO's options can be overridden.
-* Fix: Correctly update Yoast SEO settings when disabling AI.
+* New: Add support for Rank Math SEO - Disable Content AI module and features, and hide the module from the Rank Math admin Dashboard.
+* Updated: Add AIOSEO editor styles to fewer admin pages, and disable the AI features on custom post type edit screens.
+* Updated: Load utilities earlier in the WP sequence so Rank Math SEO's options can be overridden.
+* Fixed: Correctly update Yoast SEO settings when disabling AI.
 
 = 0.3.0 =
-* Rename plugin option and add sanitization.
-* Update PHP file structure and comments.
-* Move css to enqueued files.
-* Hide AIOSEO AI tab in AIOSEO's General Settings, and load style in Elementor editor too.
+* Updated: Rename plugin option and add sanitization.
+* Updated: Update PHP file structure and comments.
+* Updated: Move css to enqueued files.
+* Updated: Hide AIOSEO AI tab in AIOSEO's General Settings, and load style in Elementor editor too.
 
 = 0.2.0 =
-* Add support for All in One SEO. Hide AI menu items and tabs, hide AI buttons, and remove the Writing Assistant metabox in the post editor.
-* Remove WP from more instances of the plugin's name to comply with WordPress plugin repository rules.
+* New: Add support for All in One SEO. Hide AI menu items and tabs, hide AI buttons, and remove the Writing Assistant metabox in the post editor.
+* Updated: Remove WP from more instances of the plugin's name to comply with WordPress plugin repository rules.
 
 = 0.1.0 =
 * Initial release with support for disabling AI in Elementor, WPForms Lite, and Yoast SEO.
