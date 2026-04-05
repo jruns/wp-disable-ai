@@ -2,7 +2,7 @@
 Contributors: jruns
 Tags: ai, artificial intelligence, sustainability
 Requires at least: 6.0
-Tested up to: 6.9.4
+Tested up to: 6.9
 Stable tag: 0.4.2
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -50,7 +50,7 @@ If you also want to make a few less database queries and only configure plugin s
 == Changelog ==
 
 =0.4.2 =
-* New: Remove Yoast SEO's admin menu items for AI Brand Insights.
+* New: Remove Yoast SEO's AI Brand Insights admin menu items.
 
 = 0.4.1 =
 * New: Support wp-config.php constant DISAI_ENABLE_WPCONFIG_MODE for enabling/disabling plugin settings from wp-config.php.
