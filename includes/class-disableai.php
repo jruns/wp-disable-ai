@@ -80,7 +80,7 @@ class DisableAI {
 		if ( defined( 'DISAI_VERSION' ) ) {
 			$this->version = DISAI_VERSION;
 		} else {
-			$this->version = '0.4.1';
+			$this->version = '0.4.2';
 		}
 		$this->plugin_name = 'disable-ai';
 

@@ -2,8 +2,8 @@
 Contributors: jruns
 Tags: ai, artificial intelligence, sustainability
 Requires at least: 6.0
-Tested up to: 6.9
-Stable tag: 0.4.1
+Tested up to: 6.9.4
+Stable tag: 0.4.2
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
