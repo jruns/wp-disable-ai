@@ -40,6 +40,24 @@ class DISAI_Plugin_Aioseo {
 	}
 
 	/**
+	 * Remove AI menu items from WP Admin bar
+	 *
+	 * @since    0.4.3
+	 */
+	public function remove_admin_bar_menu_items( WP_Admin_Bar $wp_admin_bar ) {
+		$wp_admin_bar->remove_menu( 'aioseo-ai-insights' );
+	}
+
+	/**
+	 * Remove AI menu items from WP Admin left sidebar
+	 *
+	 * @since    0.4.3
+	 */
+	public function remove_admin_sidebar_menu_items() {
+		remove_submenu_page( 'aioseo', 'aioseo-ai-insights' );
+	}
+
+	/**
 	 * Execute commands after initialization
 	 *
 	 * @since    0.2.0
@@ -48,5 +66,9 @@ class DISAI_Plugin_Aioseo {
 		add_action( 'add_meta_boxes', array( $this, 'remove_writing_assistant_meta_box' ), 100, 2 );
 		add_action( 'admin_print_styles', array( $this, 'hide_ai_editor_elements' ) );
 		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'load_editor_styles' ) );
+
+		// Remove admin menu items
+		add_action( 'admin_bar_menu', array( $this, 'remove_admin_bar_menu_items' ), 99999 );
+		add_action( 'admin_menu', array( $this, 'remove_admin_sidebar_menu_items' ), 10 );
 	}
 }
