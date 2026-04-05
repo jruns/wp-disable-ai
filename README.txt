@@ -49,7 +49,7 @@ If you also want to make a few less database queries and only configure plugin s
 
 == Changelog ==
 
-=0.4.2 =
+= 0.4.2 =
 * New: Remove Yoast SEO's AI Brand Insights admin menu items.
 
 = 0.4.1 =
