@@ -49,6 +49,9 @@ If you also want to make a few less database queries and only configure plugin s
 
 == Changelog ==
 
+=0.4.2 =
+* New: Remove Yoast SEO's admin menu items for AI Brand Insights.
+
 = 0.4.1 =
 * New: Support wp-config.php constant DISAI_ENABLE_WPCONFIG_MODE for enabling/disabling plugin settings from wp-config.php.
 * Updated: Convert wp-config.php string constants to booleans so 'false' evaluates to false.
