@@ -2,8 +2,8 @@
 Contributors: jruns
 Tags: ai, artificial intelligence, sustainability
 Requires at least: 6.0
-Tested up to: 6.9
-Stable tag: 0.4.3
+Tested up to: 7.0
+Stable tag: 0.5.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -49,7 +49,8 @@ If you also want to make a few less database queries and only configure plugin s
 
 == Changelog ==
 
-= 0.4.3 =
+= 0.5.0 =
+* New: Disable WordPress Core AI features and the Abilities API.
 * New: Remove AIOSEO's AI admin menu items.
 * New: Remove AIOSEO's AI-related Block editor options and buttons.
 
