@@ -80,14 +80,24 @@ class DISAI_Plugin_Aioseo {
 	public function run() {
 		add_action( 'add_meta_boxes', array( $this, 'remove_writing_assistant_meta_box' ), 100, 2 );
 		add_action( 'admin_print_styles', array( $this, 'hide_ai_editor_elements' ) );
-		add_filter( 'aioseo_ai_assistant_extend_block_editor_inserter_button', '__return_false' );
 		add_action( 'admin_print_scripts', array( $this, 'remove_ai_block_options' ) );
 		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'load_editor_styles' ) );
 
-		// Disable AI image generator buttons
-		add_filter('aioseo_ai_image_generator_extend_image_block_toolbar', '__return_false');
-		add_filter('aioseo_ai_image_generator_extend_image_block_placeholder', '__return_false');
-		add_filter('aioseo_ai_image_generator_extend_featured_image_button', '__return_false');
+		if ( defined( 'AIOSEO_VERSION') && 
+			version_compare( constant( 'AIOSEO_VERSION' ), '4.9.9', '>=' ) ) {
+			add_filter( 'aioseo_ai_disabled', '__return_true' );
+		} else {
+			// Disable AI features in versions earlier than 4.9.9
+			
+			add_filter( 'aioseo_ai_assistant_block_enabled', '__return_false' );
+			add_filter( 'aioseo_ai_assistant_extend_block_editor_inserter_button', '__return_false' );
+			add_filter( 'aioseo_ai_assistant_extend_paragraph_placeholder', '__return_false' );
+
+			// Disable AI image generator buttons
+			add_filter('aioseo_ai_image_generator_extend_image_block_toolbar', '__return_false');
+			add_filter('aioseo_ai_image_generator_extend_image_block_placeholder', '__return_false');
+			add_filter('aioseo_ai_image_generator_extend_featured_image_button', '__return_false');
+		}
 
 		// Remove admin menu items
 		add_action( 'admin_bar_menu', array( $this, 'remove_admin_bar_menu_items' ), 99999 );
