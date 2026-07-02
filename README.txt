@@ -21,6 +21,7 @@ This plugin currently supports disabling AI features and notifications in:
 * Rank Math SEO
 * WPForms Lite
 * Yoast SEO
+* WordPress Core and the Abilities API
 
 == Installation ==
 
@@ -50,7 +51,7 @@ If you also want to make a few less database queries and only configure plugin s
 == Changelog ==
 
 = 0.5.0 =
-* New: Disable WordPress Core AI features and the Abilities API.
+* New: Add support for disabling WordPress Core AI features and the Abilities API.
 * New: Remove AIOSEO's AI admin menu items.
 * New: Remove AIOSEO's AI-related Block editor options and buttons.
 
