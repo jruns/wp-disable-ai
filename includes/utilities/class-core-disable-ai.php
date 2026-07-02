@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Fired when Disable AI utility is active.
+ * Fired when the WordPress Core Disable AI utility is active.
  * 
  * This class defines all code necessary to disable AI features in WordPress Core.
  *
