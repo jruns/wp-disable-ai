@@ -7,3 +7,6 @@ Disable AI is a WordPress plugin to disable AI features in plugins, themes, and 
 - Rank Math SEO - Disable Content AI module and features, and hide the module from the Rank Math admin Dashboard.
 - WPForms Lite - Disable AI features.
 - Yoast SEO - Disable AI features, remove AI buttons, and disable AI upsell modals.
+
+**WordPress Core features currently supported:**  
+- Disable AI - Disable WordPress Core AI features and the Abilities API.

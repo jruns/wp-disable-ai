@@ -80,7 +80,7 @@ class DisableAI {
 		if ( defined( 'DISAI_VERSION' ) ) {
 			$this->version = DISAI_VERSION;
 		} else {
-			$this->version = '0.4.2';
+			$this->version = '0.5.0';
 		}
 		$this->plugin_name = 'disable-ai';
 
@@ -158,6 +158,9 @@ class DisableAI {
 
 		$utility_type = $utility[0] ?? '';
 		$utility_name = $utility[1] ?? '';
+
+		unset( $utility[0] );
+		$utility_name = ! empty( $utility ) ? join( '_', $utility ) : '';
 
 		if( defined( $constant_name ) ) {
 			if ( rest_sanitize_boolean( constant( $constant_name ) ) ) {

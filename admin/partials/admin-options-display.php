@@ -80,6 +80,20 @@ disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
 ?>
 </table>
 
+<h2 class="itemTitle"><?php esc_html_e( 'Disable in WordPress Core', 'disable-ai' ); ?></h2>
+
+<table class="form-table">
+<?php
+$args = array(
+    'type'              => 'core',
+    'name'              => 'disable_ai',
+    'heading'           => 'Disable AI',
+    'description'       => 'Disable WordPress\'s built-in AI features and the Abilities API. Sets `wp_supports_ai` to false in WP 7.0.0+, and unregisters all Abilities registered by plugins in earlier WP versions.'
+);
+disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
+?>
+</table>
+
 </li>
 </ul>
 
