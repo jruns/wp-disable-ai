@@ -91,6 +91,14 @@ $args = array(
     'description'       => 'Disable WordPress\'s built-in AI features and the Abilities API. Sets `wp_supports_ai` to false in WP 7.0.0+, and unregisters all Abilities registered by plugins in earlier WP versions.'
 );
 disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
+
+$args = array(
+    'type'              => 'core',
+    'name'              => 'hide_connectors_page',
+    'heading'           => 'Hide Connectors Page',
+    'description'       => 'Hide the Connectors page from the Settings menu.'
+);
+disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
 ?>
 </table>
 
