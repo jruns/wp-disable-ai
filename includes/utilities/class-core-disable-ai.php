@@ -37,7 +37,7 @@ class DISAI_Core_Disable_Ai {
                 foreach ( $abilities as $ability ) {
                     wp_unregister_ability( $ability->get_name() );
                 }
-            }, PHP_INT_MAX);
+            }, PHP_INT_MAX );
         }
 	}
 }
