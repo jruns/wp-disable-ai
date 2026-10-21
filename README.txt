@@ -1,18 +1,22 @@
 === Disable AI ===
 Contributors: jruns
-Tags: ai, artificial intelligence, sustainability
+Tags: ai, disable ai, disable-ai, sustainability, turn off
 Requires at least: 6.0
-Tested up to: 7.0
-Stable tag: 0.5.0
+Tested up to: 7.1
+Stable tag: 1.0.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-Turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.
+An easy way to turn off AI features and notifications in plugins, themes, and WordPress Core.
 
 == Description ==
 
-Tired of plugins and themes adding AI features you don't want?
-Tired of getting bothered all the time to pay for AI features?
+Disable AI lets you turn off AI features in plugins and WordPress Core. Tired of WordPress, plugins and themes adding AI features you don't want? Tired of getting bothered all the time to pay for AI features? Remove them now, easily.
+
+Features:
+
+* Turn off AI features in specific plugins from Settings > Disable AI.
+* Turn off AI support in WordPress Core from Settings > Disable AI.
 
 This plugin currently supports disabling AI features and notifications in:
 
@@ -49,6 +53,12 @@ There is a Settings page for the plugin in your wp-admin. But you can also disab
 If you also want to make a few less database queries and only configure plugin settings from wp-config.php, you can set the DISAI_ENABLE_WPCONFIG_MODE constant to true in your wp-config.php file.
 
 == Changelog ==
+
+= 1.0.0 =
+* New: Elementor - Disable Elementor MCP feature and remove related admin menus.
+* New: Add option to hide WP Core Connectors page from the Settings menu.
+* Updated: Compatibility with WordPress 7.1.
+* Fixed: Correctly disable WP Core AI features in WP 7.0+.
 
 = 0.5.0 =
 * New: Add support for disabling WordPress Core AI features and the Abilities API.

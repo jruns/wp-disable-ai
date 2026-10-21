@@ -6,8 +6,8 @@
  * @wordpress-plugin
  * Plugin Name:       Disable AI
  * Plugin URI:        https://github.com/jruns/wp-disable-ai
- * Description:       Turn off unwanted AI features and notifications in plugins, themes, and WordPress Core.
- * Version:           0.5.0
+ * Description:       Turn off AI features and notifications in plugins, themes, and WordPress Core.
+ * Version:           1.0.0
  * Author:            jruns
  * Author URI:        https://github.com/jruns
  * License:           GPL-2.0+
@@ -20,7 +20,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'DISAI_VERSION', '0.5.0' );
+define( 'DISAI_VERSION', '1.0.0' );
 define( 'DISAI_BASE_NAME', plugin_basename( __FILE__ ) );
 
 /**
