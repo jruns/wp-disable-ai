@@ -15,8 +15,8 @@ Disable AI lets you turn off AI features in plugins and WordPress Core. Tired of
 
 Features:
 
-* Turn off AI features in specific plugins.
-* Turn off AI support in WordPress Core.
+* Turn off AI features in specific plugins from Settings > Disable AI.
+* Turn off AI support in WordPress Core from Settings > Disable AI.
 
 This plugin currently supports disabling AI features and notifications in:
 
