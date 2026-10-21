@@ -28,7 +28,7 @@ class DISAI_Core_Disable_Ai {
 	public function run() {
         if ( function_exists( 'wp_supports_ai' ) ) {
             // WP version is at least 7.0.0
-            add_filter( 'wp_supports_ai', __return_false, PHP_INT_MAX );
+            add_filter( 'wp_supports_ai', '__return_false', PHP_INT_MAX );
         } else {
             // WP version is less than 7.0.0
 
