@@ -10,3 +10,4 @@ Disable AI is a WordPress plugin to disable AI features in plugins, themes, and 
 
 **WordPress Core features currently supported:**  
 - Disable AI - Disable WordPress Core AI features and the Abilities API.
+- Hide Connectors Page - Hide the Connectors page from the Settings menu.

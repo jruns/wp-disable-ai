@@ -6,7 +6,7 @@
  * @wordpress-plugin
  * Plugin Name:       Disable AI
  * Plugin URI:        https://github.com/jruns/wp-disable-ai
- * Description:       A simple way to turn off AI features and notifications in plugins, themes, and WordPress Core.
+ * Description:       An easy way to turn off AI features and notifications in plugins, themes, and WordPress Core.
  * Version:           1.0.0
  * Author:            jruns
  * Author URI:        https://github.com/jruns

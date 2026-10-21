@@ -7,7 +7,7 @@ Stable tag: 1.0.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-A simple way to turn off AI features and notifications in plugins, themes, and WordPress Core.
+An easy way to turn off AI features and notifications in plugins, themes, and WordPress Core.
 
 == Description ==
 
