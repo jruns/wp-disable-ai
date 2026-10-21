@@ -57,6 +57,7 @@ If you also want to make a few less database queries and only configure plugin s
 = 1.0.0 =
 * New: Elementor - Disable Elementor MCP feature and remove related admin menus.
 * New: Add option to hide WP Core Connectors page from the Settings menu.
+* Updated: Compatibility with WordPress 7.1.
 * Fix: Correctly disable WP Core AI features in WP 7.0+.
 
 = 0.5.0 =
