@@ -3,7 +3,7 @@ Contributors: jruns
 Tags: ai, disable ai, disable-ai, sustainability, turn off
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -53,6 +53,9 @@ There is a Settings page for the plugin in your wp-admin. But you can also disab
 If you also want to make a few less database queries and only configure plugin settings from wp-config.php, you can set the DISAI_ENABLE_WPCONFIG_MODE constant to true in your wp-config.php file.
 
 == Changelog ==
+
+= 1.1.0 = 
+* New: Elementor - Hide Angie button and Custom Widget panel from Elementor Editor.
 
 = 1.0.0 =
 * New: Elementor - Disable Elementor MCP feature and remove related admin menus.
