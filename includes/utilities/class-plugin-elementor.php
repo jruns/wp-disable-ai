@@ -49,7 +49,7 @@ class DISAI_Plugin_Elementor {
 	/**
 	 * Hide AI-related buttons and sections from Elementor Editor
 	 *
-	 * @since    1.0.1
+	 * @since    1.1.0
 	 */
 	public function load_editor_styles() {
 		wp_enqueue_style( 'disai-elementor-editor', plugin_dir_url( __DIR__ ) . 'css/elementor_editor.css', array(), constant( 'DISAI_VERSION' ) );
