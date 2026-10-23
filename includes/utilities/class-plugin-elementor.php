@@ -47,6 +47,15 @@ class DISAI_Plugin_Elementor {
 	}
 
 	/**
+	 * Hide AI-related buttons and sections from Elementor Editor
+	 *
+	 * @since    1.0.1
+	 */
+	public function load_editor_styles() {
+		wp_enqueue_style( 'disai-elementor-editor', plugin_dir_url( __DIR__ ) . 'css/elementor_editor.css', array(), constant( 'DISAI_VERSION' ) );
+	}
+
+	/**
 	 * Execute commands after initialization
 	 *
 	 * @since    0.1.0
@@ -59,5 +68,8 @@ class DISAI_Plugin_Elementor {
 		// Disable Elementor MCP
 		add_filter( 'option_elementor_mcp_enabled', '__return_false', 10, 1 );
 		add_action( 'admin_menu', array( $this, 'remove_admin_sidebar_menu_items' ), 999999 );
+
+		// Hide AI in Elementor Editor
+		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'load_editor_styles' ) );
 	}
 }

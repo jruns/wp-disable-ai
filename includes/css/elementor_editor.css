@@ -1,0 +1,9 @@
+/* Angie - Hide top nav bar button */
+#elementor-editor-wrapper-v2 header span.MuiBox-root:has(button[value="Angie"]) {
+        display: none;
+}
+
+/* Angie - Hide Custom Widget panel when no widgets exist */
+#elementor-panel-category-custom-widgets:has(div.elementor-panel-category-custom-widgets-empty)  {
+    display: none;
+}
