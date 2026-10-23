@@ -22,6 +22,7 @@ This plugin currently supports disabling AI features and notifications in:
 
 * All in One SEO
 * Elementor
+* Jetpack
 * Rank Math SEO
 * WPForms Lite
 * Yoast SEO
@@ -55,6 +56,7 @@ If you also want to make a few less database queries and only configure plugin s
 == Changelog ==
 
 = 1.1.0 = 
+* New: Add support for Jetpack - Disable Jetpack AI, and remove related menus and features.
 * New: Elementor - Hide Angie button and Custom Widget panel from Elementor Editor.
 
 = 1.0.0 =
