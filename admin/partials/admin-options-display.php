@@ -56,6 +56,14 @@ disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
 
 $args = array(
     'type'              => 'plugin',
+    'name'              => 'jetpack',
+    'heading'           => 'Jetpack',
+    'description'       => 'Disable Jetpack\'s AI features.'
+);
+disai_output_admin_option( $args, $disai_settings, $disai_wpconfig_mode );
+
+$args = array(
+    'type'              => 'plugin',
     'name'              => 'rankmath',
     'heading'           => 'Rank Math SEO',
     'description'       => 'Disable Rank Math SEO\'s AI features.'
